@@ -7,15 +7,15 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="58"
-   height="58"
-   viewBox="0 0 58 58"
+   width="67"
+   height="69"
+   viewBox="0 0 67 69"
    version="1.1"
-   id="svg1469"
+   id="svg3"
    sodipodi:docname="final.svg"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
   <metadata
-     id="metadata1475">
+     id="metadata9">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -27,7 +27,7 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs1473" />
+     id="defs7" />
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -39,24 +39,20 @@
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
      inkscape:window-height="1051"
-     id="namedview1471"
+     id="namedview5"
      showgrid="false"
-     inkscape:zoom="15.172414"
-     inkscape:cx="7.6454545"
-     inkscape:cy="13.181818"
+     inkscape:zoom="5.3642583"
+     inkscape:cx="43.568192"
+     inkscape:cy="33.375004"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg1469" />
-  <g
-     inkscape:groupmode="layer"
-     id="layer1"
-     inkscape:label="fill" />
+     inkscape:current-layer="svg3" />
   <circle
      id="Ellipse_4"
      data-name="Ellipse 4"
-     cx="9.227273"
-     cy="19.904545"
+     cx="36.083923"
+     cy="38.320953"
      r="29"
      fill="#5890ff" />
   <g
@@ -65,18 +61,18 @@
      fill="none"
      stroke="#434343"
      stroke-width="3"
-     transform="translate(-24.715909,-12.456818)">
+     transform="translate(2.5361968,4.7732257)">
     <circle
        cx="29"
        cy="29"
        r="29"
        stroke="none"
-       id="circle2669" />
+       id="circle847" />
     <circle
        cx="29"
        cy="29"
        r="27.5"
        fill="none"
-       id="circle2671" />
+       id="circle849" />
   </g>
 </svg>

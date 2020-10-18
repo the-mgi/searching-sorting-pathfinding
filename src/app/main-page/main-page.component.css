@@ -1,0 +1,60 @@
+body {
+    margin: 0 100px 0 100px;
+    background-image: image("src/assets/images/background-main-page.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+p, ul{
+    font-family: Product-Sans-Regular, sans-serif;
+    font-size: 18px;
+}
+
+.left-content ul {
+    margin-bottom: 20px;
+}
+
+strong {
+    font-family: Product-Sans-Regular, sans-serif;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.main-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 15px;
+    box-shadow: 0 0 20px 0 #5890FF;
+    background-color: white;
+    padding: 50px;
+    min-width: 1250px;
+}
+
+div > div h3 {
+    font-family: Product-Sans-Bold,sans-serif;
+}
+
+div > div h4 {
+    font-family: Product-Sans-Regular, sans-serif;
+}
+
+div > div h4 > a {
+    color: black;
+}
+
+.left-content {
+    width: fit-content;
+}
+
+.right-content {
+    width: 70%;
+    align-content: center;
+    font-family: ProductSans-Bold, sans-serif;
+    text-align: justify;
+    margin-left: 10%;
+}
+
+li strong {
+    font-size: 17px;
+}

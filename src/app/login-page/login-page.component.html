@@ -1,0 +1,50 @@
+<div class="main-container">
+    <div class="left-container">
+        <div class="header">
+            <img src="./assets/svgs/final.svg" alt="xd-copy-svg">
+            <p>themgi</p>
+        </div>
+        <div class="login-container">
+            <p>LOGIN</p>
+            <hr>
+            <form action="">
+                <label for="email"></label>
+                <input type="email" class="email" id="email" placeholder="Email Address"
+                       [ngModelOptions]="{standalone: true}" [(ngModel)]="email">
+                <div class="usr-hint"></div>
+                <label for="password"></label>
+                <input type="password" class="password" id="password" placeholder="Password"
+                       [ngModelOptions]="{standalone: true}" [(ngModel)]="password">
+                <div class="pass-hint"></div>
+                <p class="txt"><a href="#">Forgot Password?</a></p>
+                <button class="login-btn btn-" type="submit" value="submit" (click)="submitForm()">Login</button>
+                <p class="txt-t"><a href="#">Don't have an account? Create a New One!</a></p>
+                <p class="txt-t sign-up-with">Or Sign Up With</p>
+            </form>
+            <div class="o-auth-container">
+                <div class="google" role="button">
+                    <img class="img-last" src="./assets/svgs/google.svg" alt="google-logo">
+                </div>
+                <div class="facebook" role="button">
+                    <img class="img-last" src="./assets/svgs/facebook.svg" alt="facebook-logo">
+                </div>
+                <div class="github" role="button">
+                    <img class="img-last g" src="./assets/svgs/github-sign.svg" alt="github-logo">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-container">
+        <div class="handles">
+            <img src="./assets/svgs/github-handle.svg" alt="github-handle" role="button" (click)="myFacebook()">
+            <img src="./assets/svgs/twitter-handle.svg" alt="twitter-handle" role="button" (click)="myTwitter()">
+            <img src="./assets/svgs/facebook-handle.svg" alt="facebook-handle" role="button" (click)="myGithub()">
+        </div>
+        <div class="image-container">
+            <img class="right-image" src="./assets/svgs/right-image.svg" alt="right-image">
+        </div>
+
+
+    </div>
+</div>
