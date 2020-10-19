@@ -45,12 +45,18 @@ header {
     border-radius: 15px;
 }
 
-.nav-links li a:hover {
+.nav-links li a:hover, #home-link {
     color: white;
     background-color: #5890FF;
 }
 
-#home-link {
+#sign-out {
     color: white;
-    background-color: #5890FF;
+    background-color: #fd8686;
 }
+
+#sign-out:hover {
+    background-color: #ff5959;
+}
+
+

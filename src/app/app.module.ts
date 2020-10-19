@@ -5,10 +5,14 @@ import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
 import {LoginPageComponent} from './login-page/login-page.component';
 import {FormsModule} from '@angular/forms';
-import { MainPageComponent } from './main-page/main-page.component';
-import { HeaderComponent } from './header/header.component';
-import { CompleteBlogComponent } from './complete-blog/complete-blog.component';
-import { BlogComponent } from './complete-blog/blog/blog.component';
+import {MainPageComponent} from './main-page/main-page.component';
+import {HeaderComponent} from './header/header.component';
+import {CompleteBlogComponent} from './complete-blog/complete-blog.component';
+import {BlogComponent} from './complete-blog/blog/blog.component';
+import {BarComponent} from './main-visualization-page/bar/bar.component';
+import {MainVisualizationPageComponent} from './main-visualization-page/main-visualization-page.component';
+import {AlgorithmInfoComponent} from './main-visualization-page/algorithm-info/algorithm-info.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 @NgModule({
     declarations: [
@@ -17,7 +21,11 @@ import { BlogComponent } from './complete-blog/blog/blog.component';
         MainPageComponent,
         HeaderComponent,
         CompleteBlogComponent,
-        BlogComponent
+        BlogComponent,
+        BarComponent,
+        MainVisualizationPageComponent,
+        AlgorithmInfoComponent,
+        DropdownComponent
     ],
     imports: [
         BrowserModule,

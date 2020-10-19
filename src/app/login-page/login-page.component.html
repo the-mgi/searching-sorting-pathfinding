@@ -9,15 +9,20 @@
             <hr>
             <form action="">
                 <label for="email"></label>
+                <!-- <input type="email" class="email" id="email" placeholder="Email Address"
+                       [ngModelOptions]="{standalone: true}" [(ngModel)]="email"> -->
                 <input type="email" class="email" id="email" placeholder="Email Address"
-                       [ngModelOptions]="{standalone: true}" [(ngModel)]="email">
+                    #emailInput>
                 <div class="usr-hint"></div>
                 <label for="password"></label>
+                <!-- <input type="password" class="password" id="password" placeholder="Password"
+                    [ngModelOptions]="{standalone: true}" [(ngModel)]="password"> -->
                 <input type="password" class="password" id="password" placeholder="Password"
-                       [ngModelOptions]="{standalone: true}" [(ngModel)]="password">
+                    #passwordInput>
                 <div class="pass-hint"></div>
                 <p class="txt"><a href="#">Forgot Password?</a></p>
-                <button class="login-btn btn-" type="submit" value="submit" (click)="submitForm()">Login</button>
+                <button class="login-btn btn-" type="submit" value="submit"
+                    (click)="submitForm(emailInput, passwordInput)">Login</button>
                 <p class="txt-t"><a href="#">Don't have an account? Create a New One!</a></p>
                 <p class="txt-t sign-up-with">Or Sign Up With</p>
             </form>
