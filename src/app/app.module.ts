@@ -12,7 +12,7 @@ import {BlogComponent} from './complete-blog/blog/blog.component';
 import {BarComponent} from './main-visualization-page/bar/bar.component';
 import {MainVisualizationPageComponent} from './main-visualization-page/main-visualization-page.component';
 import {AlgorithmInfoComponent} from './main-visualization-page/algorithm-info/algorithm-info.component';
-import { DropdownComponent } from './dropdown/dropdown.component';
+import { DropdownComponent } from './main-visualization-page/dropdown/dropdown.component';
 
 @NgModule({
     declarations: [

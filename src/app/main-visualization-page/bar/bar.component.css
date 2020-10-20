@@ -1,0 +1,7 @@
+.single-bar {
+    background-color: red;
+    height: 200px;
+    width: 10px;
+    border-radius: 5px;
+    margin: 5px;
+}

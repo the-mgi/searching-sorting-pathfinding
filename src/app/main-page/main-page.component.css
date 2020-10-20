@@ -58,3 +58,12 @@ div > div h4 > a {
 li strong {
     font-size: 17px;
 }
+
+::selection {
+    background-color: yellow;
+}
+
+p {
+    font-family: Product-Sans-Regular, sans-serif;
+    font-size: 18px;
+}

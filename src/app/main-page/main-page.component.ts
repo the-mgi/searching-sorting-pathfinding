@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {sortingAlgorithms, searchingAlgorithms, pathfindingAlgorithms} from '../../sharedClasses/classTemplate';
 
 @Component({
     selector: 'app-main-page',
@@ -7,28 +8,9 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
-    sortingAlgorithms: string[] = [
-        'Selection Sort',
-        'Bubble sort',
-        'Quick Sort',
-        'Merge Sort',
-        'Radix Sort',
-        'Bucket Sort',
-        'Bitonic Sort',
-        'Pancake Sort'
-    ];
-    searchingAlgorithms: string[] = [
-        'Linear Search',
-        'Binary Search',
-        'Jump Search',
-        'Interpolation Search',
-        'Exponential Search',
-        'Fibonacci Search'
-    ];
-    pathfindingAlgorithms: string[] = [
-        'A Star Algorithm',
-        'Dijkstra\'s Algorithm'
-    ];
+    sortingAlgorithms = sortingAlgorithms;
+    searchingAlgorithms = searchingAlgorithms;
+    pathfindingAlgorithms = pathfindingAlgorithms;
 
     constructor() {
     }

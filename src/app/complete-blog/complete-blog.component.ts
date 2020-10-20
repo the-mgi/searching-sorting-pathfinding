@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Blog} from '../../sharedClasses/classInterfaces';
+import {Blog} from '../../sharedClasses/classTemplate';
 
 @Component({
     selector: 'app-complete-blog',

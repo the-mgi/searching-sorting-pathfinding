@@ -3,14 +3,16 @@ h2 {
 }
 
 .container {
-    margin-top: 0;
-    padding: 32px;
+    margin: 0;
+    width: 200px;
 }
 
 .select-box {
     display: flex;
-    width: 400px;
+    width: 200px;
     flex-direction: column;
+    overflow: hidden;
+    position: absolute;
 }
 
 .select-box .options-container {
@@ -38,7 +40,7 @@ label {
 
 
 .selected {
-    width: 400px;
+    width: 200px;
     background-color: #204970;
     border-radius: 8px;
     margin-bottom: 8px;
@@ -50,7 +52,7 @@ label {
 
 .selected::after {
     content: "";
-    background-image: url("src/assets/svgs/arrow-down-sign-to-navigate.svg");
+    background-image: url("../../../assets/svgs/arrow-down-sign-to-navigate.svg");
     background-size: contain;
     background-repeat: no-repeat;
 

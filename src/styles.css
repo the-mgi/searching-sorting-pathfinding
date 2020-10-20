@@ -8,10 +8,6 @@
     src: local("Product-Sans-Regular"), url("./assets/fonts/ProductSans-Regular.ttf");
 }
 
-::selection {
-    background-color: yellow;
-}
-
 body::-webkit-scrollbar {
     width: 10px;
 }
@@ -26,7 +22,3 @@ body::-webkit-scrollbar-thumb {
     border-radius: 10px;
 }
 
-p {
-    font-family: Product-Sans-Regular, sans-serif;
-    font-size: 18px;
-}
