@@ -5,6 +5,7 @@ import {
     optionsAvailableSort,
     optionsAvailableSpeedValues
 } from '../../sharedClasses/classTemplate';
+import {single} from 'rxjs/operators';
 
 type int = number;
 
@@ -36,7 +37,10 @@ export class MainVisualizationPageComponent implements OnInit {
     }
 
     visualize(): void {
-        this.isDisabled = !this.isDisabled;
+        const allBars = this.elementReference.nativeElement.querySelectorAll('.bars');
+        allBars.forEach(singleBar => {
+            console.log(singleBar);
+        });
     }
 
     move(startPositionX: int, startPositionY: int, toPositionX: int, toPositionY: int): void {

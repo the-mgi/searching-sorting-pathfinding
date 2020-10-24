@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
@@ -30,7 +31,8 @@ import { DropdownComponent } from './main-visualization-page/dropdown/dropdown.c
     imports: [
         BrowserModule,
         RouterModule,
-        FormsModule
+        FormsModule,
+        BrowserAnimationsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
