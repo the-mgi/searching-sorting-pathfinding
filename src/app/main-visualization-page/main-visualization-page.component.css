@@ -1,3 +1,25 @@
+.main-visualization {
+    display: inline-block;
+
+}
+
+.bars-area {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    background-color: #42e730;
+}
+
+.column-area {
+    float: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.algorithm-info {
+    float: right;
+}
+
 app-dropdown {
     width: fit-content;
 }
@@ -6,6 +28,7 @@ app-dropdown {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    background-color: red;
 }
 
 .all-options * {
@@ -25,7 +48,6 @@ input {
     border: none;
     outline: none;
     transition: 0.5s;
-    /*margin: px;*/
     border-radius: 10px;
     font-family: Product-Sans-Regular, sans-serif;
     font-size: 15px;
@@ -73,9 +95,4 @@ button[type=button]:active {
 button[type=button]:disabled {
     background-color: #97f88d;
     color: #fdf7f7;
-}
-
-.bars-area {
-    display: flex;
-    flex-direction: row;
 }

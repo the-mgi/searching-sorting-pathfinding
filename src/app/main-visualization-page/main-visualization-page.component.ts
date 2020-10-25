@@ -5,9 +5,7 @@ import {
     optionsAvailableSort,
     optionsAvailableSpeedValues
 } from '../../sharedClasses/classTemplate';
-import {single} from 'rxjs/operators';
 
-type int = number;
 
 @Component({
     selector: 'app-main-visualization-page',
@@ -43,7 +41,7 @@ export class MainVisualizationPageComponent implements OnInit {
         });
     }
 
-    move(startPositionX: int, startPositionY: int, toPositionX: int, toPositionY: int): void {
+    move(startPositionX: number, startPositionY: number, toPositionX: number, toPositionY: number): void {
     }
 
     selectionSort(): void {
