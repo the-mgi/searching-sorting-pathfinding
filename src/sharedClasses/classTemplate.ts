@@ -11,7 +11,9 @@ export class Blog {
 
 export class AlgorithmData {
     constructor(
+        public algorithmName: string,
         public whatIs: string,
+        public sourceCode: object,
         public howDoes: string,
         public worstCaseTime: string,
         public averageCaseTime: string,
@@ -84,7 +86,29 @@ export const pathfindingAlgorithms: string[] = [
     'Dijkstra\'s Algorithm'
 ];
 
-/*All Data and class templates are written here because
- currently don't know how to make CRUD API, when made,
- easily methods here would be called and data will be assigned
-*/
+export const sortingAlgorithmsData: AlgorithmData[] = [
+    new AlgorithmData(
+        'SelectionSort',
+        'what is this algorithm?',
+        {sourceCode: 'this is the source code'},
+        'this is how it works',
+        'worst time is O(n**2)',
+        'average case is O(n**2)',
+        'best case is O(n**2)',
+        'space complexity O(1)'
+    )
+];
+
+export function findAlgorithmSort(algoName: string): AlgorithmData {
+    sortingAlgorithmsData.forEach(singleAlgorithm => {
+        if (singleAlgorithm.algorithmName === algoName) {
+            return singleAlgorithm;
+        }
+    });
+    return null;
+}
+
+/**All Data and class templates are written here because
+ * currently don't know how to make CRUD API, when made,
+ * easily methods here would be called and data will be assigned
+ */
