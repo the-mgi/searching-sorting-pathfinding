@@ -9,6 +9,7 @@ export class BarComponent implements OnInit {
 
     @Input() height: number;
     @Input() color: string;
+    @Input() valueToDisplay: string;
 
     constructor() {
     }
