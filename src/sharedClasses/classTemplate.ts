@@ -23,6 +23,15 @@ export class AlgorithmData {
     }
 }
 
+export class Bar {
+    constructor(
+        public value: number,
+        public height: number,
+        public color: string
+    ) {
+    }
+}
+
 export const optionsAvailableSort: { id: string, name: string }[] = [
     {id: 'selection', name: 'Selection Sort'},
     {id: 'bubble', name: 'Bubble Sort'},
@@ -112,3 +121,55 @@ export function findAlgorithmSort(algoName: string): AlgorithmData {
  * currently don't know how to make CRUD API, when made,
  * easily methods here would be called and data will be assigned
  */
+
+
+export function parseArray(value: string): number[] {
+    return value.split(',').map(singleEntry => {
+        try {
+            return +singleEntry;
+        } catch (error) {
+        }
+    });
+}
+
+const randomFunction = n =>
+    Array.from({length: n}, (value, key) => key).map(i => Math.floor(i + Math.random() * 1000000));
+
+export const randomColor = () => '#' + Math.random().toString(16).substr(-6);
+
+/**
+ * I don't know why this shit is not working
+ */
+export function findMinMaxNumber(array: number[], startIndex: number, lastIndex: number): number[] {
+    let max;
+    let min;
+
+    if (startIndex === lastIndex) {
+        max = array[startIndex];
+        min = array[startIndex];
+    } else if (startIndex + 1 === lastIndex) {
+        if (array[startIndex] < array[lastIndex]) {
+            max = array[lastIndex];
+            min = array[startIndex];
+        } else {
+            max = array[startIndex];
+            min = array[lastIndex];
+        }
+    } else {
+        const mid = startIndex + (lastIndex - startIndex) / 2;
+        const left: number[] = findMinMaxNumber(array, startIndex, mid);
+        const right: number[] = findMinMaxNumber(array, mid + 1, lastIndex);
+        if (left[0] > right[0]) {
+            max = left[0];
+        } else {
+            max = right[0];
+        }
+
+        if (left[1] < right[1]) {
+            min = left[1];
+        } else {
+            min = right[1];
+        }
+    }
+    return [max, min];
+}
