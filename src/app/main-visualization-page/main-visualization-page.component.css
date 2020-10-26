@@ -1,34 +1,18 @@
-.main-visualization {
-    display: inline-block;
-
-}
-
-.bars-area {
-    display: flex;
-    flex-direction: row;
-    width: fit-content;
-    background-color: #42e730;
-}
-
 .column-area {
-    float: left;
     display: flex;
     flex-direction: column;
-}
-
-.algorithm-info {
-    float: right;
-}
-
-app-dropdown {
-    width: fit-content;
+    align-content: center;
 }
 
 .all-options {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    background-color: red;
+    justify-content: space-between;
+    margin-bottom: 70px;
+}
+
+app-dropdown {
+    width: fit-content;
 }
 
 .all-options * {
@@ -95,4 +79,17 @@ button[type=button]:active {
 button[type=button]:disabled {
     background-color: #97f88d;
     color: #fdf7f7;
+}
+
+.bars-area {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 0 0 15px 0 #5890FF;
+    width: fit-content;
+}
+
+.algorithm-info {
+    float: right;
 }
