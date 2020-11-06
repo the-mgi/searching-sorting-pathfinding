@@ -1,5 +1,6 @@
-import {AfterViewChecked, Component, ElementRef, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, ViewChildren} from '@angular/core';
 import {
+    Algorithm,
     Bar,
     optionsAvailablePathfinding,
     optionsAvailableSearch,
@@ -15,7 +16,7 @@ import {
     templateUrl: './main-visualization-page.component.html',
     styleUrls: ['./main-visualization-page.component.css']
 })
-export class MainVisualizationPageComponent implements OnInit, AfterViewChecked {
+export class MainVisualizationPageComponent implements OnInit {
 
     optionsAvailableSearch = optionsAvailableSearch;
     optionsAvailableSort = optionsAvailableSort;
@@ -24,33 +25,42 @@ export class MainVisualizationPageComponent implements OnInit, AfterViewChecked 
 
     ownArray: string;
     algorithm = 'Algorithm';
+    speedToRun: number;
     isVisualizeButtonDisabled = false;
 
-    barsValue: Bar[] = [];
-    isBarsCreated = false;
-    number: number[] = [];
+    barsValue: Bar[];
+    isBarsCreated: boolean;
+    number: number[];
+    text: string;
 
-    constructor(private elementReference: ElementRef) {
+    isClassAttached: boolean;
+
+    @ViewChild('valueToSearch') searchValue: ElementRef;
+    @ViewChildren('cc') barsAll;
+
+    constructor() {
     }
 
     ngOnInit(): void {
+        this.barsValue = [];
+        this.isBarsCreated = false;
+        this.number = [];
+        this.isClassAttached = false;
     }
 
     setAlgorithmName(event: { nameAlgo: string }): void {
         this.algorithm = event.nameAlgo;
     }
 
-    visualize(noOfBarsInput: HTMLInputElement, yourArrayInput: HTMLInputElement): void {
-        const allBars = this.elementReference.nativeElement.querySelectorAll('.bars');
-        console.log(`I am in visualize ${allBars.length}`);
-        const yourArray = yourArrayInput.value;
-        const numBars = noOfBarsInput.value;
-
-        this.barsValue = [];
-        this.createBars(yourArray);
+    updateSpeed(event: { speedToRun: string }): void {
+        this.speedToRun = +event.speedToRun.substr(0, event.speedToRun.length - 1);
+        console.log(this.speedToRun);
     }
 
-    createBars(yourArray: string): void {
+    addBarsInPage(noOfBarsInput: HTMLInputElement, yourArrayInput: HTMLInputElement): void {
+        const yourArray = yourArrayInput.value;
+
+        this.barsValue = [];
         this.number.push(2);
         const array = parseArray(yourArray);
         /*
@@ -67,22 +77,84 @@ export class MainVisualizationPageComponent implements OnInit, AfterViewChecked 
                 )
             );
         });
-        this.isBarsCreated = true;
-        this.linearSearch();
+        this.isBarsCreated = true;  // whether or not, to display bars in the area, like router-outlet
+
+        setTimeout(() => {
+            switch (this.algorithm) {
+                case Algorithm.LINEAR_SEARCH:
+                    this.linearSearch();
+                    break;
+                case Algorithm.BINARY_SEARCH:
+                    this.binarySearch();
+                    break;
+                case Algorithm.EXPONENTIAL_SEARCH:
+                    this.exponentialSearch();
+                    break;
+                case Algorithm.FIBONACCI_SEARCH:
+                    this.fibonacciSearch();
+                    break;
+                case Algorithm.INTERPOLATION_SEARCH:
+                    this.interpolationSearch();
+                    break;
+                case Algorithm.JUMP_SEARCH:
+                    this.jumpSearch();
+                    break;
+            }
+        }, 1000);
     }
 
-    ngAfterViewChecked(): void {
-        const bars: HTMLElement[] = this.elementReference.nativeElement.querySelectorAll('.bars');
-        console.log('in linear search ' + bars.length);
-        bars.forEach(singleBar => {
-            setTimeout(() => {
-                console.log(singleBar.innerHTML);
-                console.log('I am iterating');
-            }, 100);
-        });
+    private linearSearch(): void {
+        const allBars = this.barsAll._results;
+        allBars[0].condition = true;
+        const valueToSearch: number = +this.searchValue.nativeElement.value;
+        setTimeout(() => {
+            for (let i = 1; i < this.barsValue.length; i++) {
+                if (valueToSearch === this.barsValue[i - 1].value) {
+                    break;
+                }
+                // tslint:disable-next-line:no-shadowed-variable
+                const func = (i) => {
+                    setTimeout(() => {
+                        allBars[i - 1].condition = false;
+                        allBars[i].condition = true;
+                    }, (1000 / this.speedToRun) * i);
+                };
+                func(i);
+            }
+        }, (1000 / this.speedToRun));
     }
 
-    linearSearch(): void {
+    private binarySearch(): void {
+
+    }
+
+    private exponentialSearch(): void {
+
+    }
+
+    private fibonacciSearch(): void {
+
+    }
+
+    private interpolationSearch(): void {
+
+    }
+
+    private jumpSearch(): void {
 
     }
 }
+
+// Reference Code from Sebs Angular Discord
+// const singleItem = item => {
+//     item.condition = true;
+// };
+
+// i don't know how this shit is iterating over the array and adding the delay effectively but literally i am really really
+// thankful to a guy SEBS in Angular Discord server
+// i love you man!!!!!!!
+// const results = from(all).pipe(
+//     concatMap(item => of(item).pipe(delay(1000)))
+// );
+// results.subscribe(singleItem);
+

@@ -85,9 +85,6 @@ button[type=button]:disabled {
     display: flex;
     flex-direction: row;
     margin: auto;
-    border-radius: 20px;
-    box-shadow: 0 0 15px 0 #5890FF;
-    width: fit-content;
 }
 
 .algorithm-info {
