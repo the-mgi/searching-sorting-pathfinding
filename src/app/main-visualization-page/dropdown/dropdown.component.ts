@@ -11,7 +11,10 @@ export class DropdownComponent implements OnInit {
     @Input() optionsAvailable: { id: string, name: string }[];
     @Input() category: string;
     @Input() width: number;
+    @Input() forSpeed: boolean;
+
     @Output() algorithmName = new EventEmitter<{ nameAlgo: string }>();
+    @Output() speed = new EventEmitter<{ speedToRun: string }>();
 
     notDown = false;
 
@@ -25,6 +28,10 @@ export class DropdownComponent implements OnInit {
         const str = event.toElement.children[0].innerText;
         this.elementsReference.nativeElement.querySelector('.selected').innerHTML = str;
         this.notDown = !this.notDown;
-        this.algorithmName.emit({nameAlgo: str});
+        if (!this.forSpeed) {
+            this.algorithmName.emit({nameAlgo: str});
+        } else {
+            this.speed.emit({speedToRun: str});
+        }
     }
 }
