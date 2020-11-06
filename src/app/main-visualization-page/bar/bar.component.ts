@@ -11,10 +11,18 @@ export class BarComponent implements OnInit {
     @Input() color: string;
     @Input() valueToDisplay: string;
 
+    private condition: boolean;
+
+    @Input()
+    get isClassAttached(): boolean { return this.condition; }
+    set isClassAttached(condition: boolean) { this.condition = condition; }
+
+
     constructor() {
     }
 
     ngOnInit(): void {
+        this.condition = false;
     }
 
 }

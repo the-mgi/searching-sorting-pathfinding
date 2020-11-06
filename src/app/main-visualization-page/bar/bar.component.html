@@ -2,6 +2,6 @@
     class="single-bar"
     [style.height.%]="height"
     [style.backgroundColor]="color"
->
+    [ngClass]="{'current': isClassAttached}">
     <p>{{valueToDisplay}}</p>
 </div>

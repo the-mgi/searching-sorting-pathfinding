@@ -2,7 +2,8 @@
     background-color: red;
     width: 25px;
     border-radius: 3px;
-    margin: 5px;
+    margin: 8px;
+    transition: .3s;
 }
 
 .single-bar p {
@@ -15,4 +16,8 @@
     text-align: center;
     font-family: Product-Sans-Regular, sans-serif;
     border-radius: 3px;
+}
+
+.current {
+    box-shadow: 10px 10px 8px #585853;
 }
