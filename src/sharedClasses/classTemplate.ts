@@ -32,6 +32,15 @@ export class Bar {
     }
 }
 
+export enum Algorithm {
+    LINEAR_SEARCH = 'Linear Search',
+    BINARY_SEARCH = 'Binary Search',
+    JUMP_SEARCH = 'Jump Search',
+    INTERPOLATION_SEARCH = 'Interpolation Search',
+    EXPONENTIAL_SEARCH = 'Exponential Search',
+    FIBONACCI_SEARCH = 'Fibonacci Search'
+}
+
 export const optionsAvailableSort: { id: string, name: string }[] = [
     {id: 'selection', name: 'Selection Sort'},
     {id: 'bubble', name: 'Bubble Sort'},
@@ -132,8 +141,8 @@ export function parseArray(value: string): number[] {
     });
 }
 
-const randomFunction = n =>
-    Array.from({length: n}, (value, key) => key).map(i => Math.floor(i + Math.random() * 1000000));
+const randomFunction = (n: number, startValue: number, lastValue: number) =>
+    Array.from({length: n}, (value, key) => key).map(i => Math.floor(startValue + Math.random() * lastValue));
 
 export const randomColor = () => '#' + Math.random().toString(16).substr(-6);
 
