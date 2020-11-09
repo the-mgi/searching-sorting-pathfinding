@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {sortingAlgorithms, searchingAlgorithms, pathfindingAlgorithms} from '../../sharedClasses/classTemplate';
+import {optionsAvailablePathfinding, optionsAvailableSearch, optionsAvailableSort} from '../../sharedClasses/classTemplate';
 
 @Component({
     selector: 'app-main-page',
@@ -7,10 +7,9 @@ import {sortingAlgorithms, searchingAlgorithms, pathfindingAlgorithms} from '../
     styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-
-    sortingAlgorithms = sortingAlgorithms;
-    searchingAlgorithms = searchingAlgorithms;
-    pathfindingAlgorithms = pathfindingAlgorithms;
+    sortingAlgorithms = optionsAvailableSort;
+    searchingAlgorithms = optionsAvailableSearch;
+    pathfindingAlgorithms = optionsAvailablePathfinding;
 
     constructor() {
     }

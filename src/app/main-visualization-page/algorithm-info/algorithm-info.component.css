@@ -1,30 +1,24 @@
 .main-container-info {
-    margin: 10px;
-    width: 400px;
-    height: 500px;
-    box-shadow: 0 0 8px #000000;
-    overflow: hidden;
-    overflow-y: scroll;
-    padding: 25px;
+    position: relative;
+    margin: auto;
+    box-shadow: 0 0 8px #5890FF;
+    padding: 30px 50px 50px 50px;
     border-radius: 15px;
-}
-
-p {
-    text-align: justify;
-    font-family: Product-Sans-Regular, sans-serif;
-    font-size: 15px;
-}
-
-.main-container-info::-webkit-scrollbar {
+    width: 90%;
+    height: fit-content;
     background-color: white;
-    width: 8px;
-    height: inherit;
-    border-radius: 15px;
-
 }
 
-.main-container-info::-webkit-scrollbar-thumb {
-    background-color: #5890FF;
-    width: 8px;
-    border-radius: 15px;
+mark {
+    font-size: 20px;
+}
+
+p > span {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+h3 {
+    font-weight: bold;
 }

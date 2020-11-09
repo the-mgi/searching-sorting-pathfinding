@@ -6,15 +6,15 @@
         <h4><a href="">Algorithm?</a></h4>
         <h4><a href="#sort-algo">Sorting Algorithms</a></h4>
         <ul>
-            <li *ngFor="let sort of sortingAlgorithms"><a href="">{{sort}}</a></li>
+            <li *ngFor="let sort of sortingAlgorithms"><a href="">{{sort.name}}</a></li>
         </ul>
-        <h4><a href="#search-algo">Searching Algorithm</a></h4>
+        <h4><a href="#search-algo">Searching Algorithms</a></h4>
         <ul>
-            <li *ngFor="let search of searchingAlgorithms"><a href="">{{search}}</a></li>
+            <li *ngFor="let search of searchingAlgorithms"><a href="">{{search.name}}</a></li>
         </ul>
         <h4><a href="#pathfinding-algo">Pathfinding Algorithm</a></h4>
         <ul>
-            <li *ngFor="let path of pathfindingAlgorithms"><a href="">{{path}}</a></li>
+            <li *ngFor="let path of pathfindingAlgorithms"><a href="">{{path.name}}</a></li>
         </ul>
     </div>
     <div class="right-content">
@@ -68,7 +68,7 @@
             </p>
 
             <ul>
-                <li *ngFor="let sort of sortingAlgorithms;">{{sort}}</li>
+                <li *ngFor="let sort of sortingAlgorithms;">{{sort.name}}</li>
             </ul>
         </article>
         <article>
@@ -116,7 +116,7 @@
                 clicking on any of them.
             </p>
             <ul>
-                <li *ngFor="let search of searchingAlgorithms">{{search}}</li>
+                <li *ngFor="let search of searchingAlgorithms">{{search.name}}</li>
             </ul>
         </article>
         <article>
@@ -148,7 +148,7 @@
                 clicking on any of them.
             </p>
             <ul>
-                <li *ngFor="let path of pathfindingAlgorithms;">{{path}}</li>
+                <li *ngFor="let path of pathfindingAlgorithms;">{{path.name}}</li>
             </ul>
         </article>
     </div>

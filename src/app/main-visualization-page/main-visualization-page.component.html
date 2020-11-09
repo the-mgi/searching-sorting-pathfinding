@@ -1,30 +1,4 @@
 <div class="main-visualization">
-    <div class="column-area">
-        <div class="all-options">
-            <app-dropdown [category]="'Select Algorithm'" [optionsAvailable]="optionsAvailableSearch"
-                          (algorithmName)="setAlgorithmName($event)" [forSpeed]="false"></app-dropdown>
-            <app-dropdown [category]="'Select Speed'" [optionsAvailable]="optionsAvailableSpeedValues" (speed)="updateSpeed($event)"
-            [forSpeed]="true"></app-dropdown>
-            <label for="valToSearch">
-                <input type="number" id="valToSearch" class="bars-number" placeholder="Value to Search!"
-                       #valueToSearch>
-            </label>
-            <label for="onesArray">
-                <input type="text" id="onesArray" class="ones-array"
-                       placeholder="Enter your array i.e. {2, 1, 80, 25, 10, 0}" #arrayInput
-                       [(ngModel)]="text">
-            </label>
-            <button type="button" class="visualize-button" [disabled]="isVisualizeButtonDisabled"
-                    (click)="addBarsInPage(valueToSearch, arrayInput)">
-                Visualize {{algorithm}}</button>
-        </div>
-        <div class="bars-area" *ngIf="isBarsCreated ">
-            <div *ngFor="let singleBar of barsValue;">
-                <app-bar #cc class="bars .current" [height]="singleBar.height * 0.20" [color]="singleBar.color"
-                         [valueToDisplay]="singleBar.value.toString()" [isClassAttached]="isClassAttached"></app-bar>
-            </div>
-        </div>
-    </div>
-    <div class="algorithm-info">
-    </div>
+    <app-searching></app-searching>
+    <app-algorithm-info></app-algorithm-info>
 </div>

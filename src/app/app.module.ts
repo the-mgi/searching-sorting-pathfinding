@@ -13,7 +13,11 @@ import {BlogComponent} from './complete-blog/blog/blog.component';
 import {BarComponent} from './main-visualization-page/bar/bar.component';
 import {MainVisualizationPageComponent} from './main-visualization-page/main-visualization-page.component';
 import {AlgorithmInfoComponent} from './main-visualization-page/algorithm-info/algorithm-info.component';
-import { DropdownComponent } from './main-visualization-page/dropdown/dropdown.component';
+import {DropdownComponent} from './main-visualization-page/dropdown/dropdown.component';
+import {SearchingComponent} from './main-visualization-page/searching/searching.component';
+import {SortingComponent} from './main-visualization-page/sorting/sorting.component';
+import {PathfindingComponent} from './main-visualization-page/pathfinding/pathfinding.component';
+import { GithubGistComponent } from './github-gist/github-gist.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +30,11 @@ import { DropdownComponent } from './main-visualization-page/dropdown/dropdown.c
         BarComponent,
         MainVisualizationPageComponent,
         AlgorithmInfoComponent,
-        DropdownComponent
+        DropdownComponent,
+        SearchingComponent,
+        SortingComponent,
+        PathfindingComponent,
+        GithubGistComponent
     ],
     imports: [
         BrowserModule,

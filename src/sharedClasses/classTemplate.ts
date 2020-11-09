@@ -13,7 +13,7 @@ export class AlgorithmData {
     constructor(
         public algorithmName: string,
         public whatIs: string,
-        public sourceCode: object,
+        public sourceCode: string,
         public howDoes: string,
         public worstCaseTime: string,
         public averageCaseTime: string,
@@ -79,36 +79,11 @@ export const optionsAvailableSpeedValues: { id: string, name: string }[] = [
 
 ];
 
-export const sortingAlgorithms: string[] = [
-    'Selection Sort',
-    'Bubble sort',
-    'Quick Sort',
-    'Merge Sort',
-    'Radix Sort',
-    'Bucket Sort',
-    'Bitonic Sort',
-    'Pancake Sort'
-];
-
-export const searchingAlgorithms: string[] = [
-    'Linear Search',
-    'Binary Search',
-    'Jump Search',
-    'Interpolation Search',
-    'Exponential Search',
-    'Fibonacci Search'
-];
-
-export const pathfindingAlgorithms: string[] = [
-    'A Star Algorithm',
-    'Dijkstra\'s Algorithm'
-];
-
 export const sortingAlgorithmsData: AlgorithmData[] = [
     new AlgorithmData(
         'SelectionSort',
         'what is this algorithm?',
-        {sourceCode: 'this is the source code'},
+        'this is the source code',
         'this is how it works',
         'worst time is O(n**2)',
         'average case is O(n**2)',
@@ -181,4 +156,13 @@ export function findMinMaxNumber(array: number[], startIndex: number, lastIndex:
         }
     }
     return [max, min];
+}
+
+function LinearSearch(array: number[], key: number): number {
+    array.forEach((value, index) => {
+        if (value === key) {
+            return index;
+        }
+    });
+    return -1;
 }

@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AlgorithmData} from '../../../sharedClasses/classTemplate';
 
 @Component({
     selector: 'app-algorithm-info',
@@ -7,12 +8,11 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class AlgorithmInfoComponent implements OnInit {
 
-    @Input() algorithmToDisplay: string;
+    algorithmData: AlgorithmData;
 
     constructor() {
     }
 
     ngOnInit(): void {
-
     }
 }
