@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AlgorithmData} from '../../../sharedClasses/classTemplate';
 
 @Component({
@@ -9,10 +9,19 @@ import {AlgorithmData} from '../../../sharedClasses/classTemplate';
 export class AlgorithmInfoComponent implements OnInit {
 
     algorithmData: AlgorithmData;
+    isLinearIterative = true;
+    text = 'Linear Search Iterative';
+
+    @ViewChild('radio') input: ElementRef;
 
     constructor() {
     }
 
     ngOnInit(): void {
+    }
+
+    consoleLog(event: Event): void {
+        // console.log(event);
+        console.log(this.input.nativeElement);
     }
 }

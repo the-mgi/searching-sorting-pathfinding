@@ -22,3 +22,27 @@ p > span {
 h3 {
     font-weight: bold;
 }
+
+::selection {
+    background-color: yellow;
+}
+
+.iterative-recursive {
+    background-color: #5890FF;
+    border-radius: 10px;
+    color: white;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-family: Product-Sans-Regular, sans-serif;
+    padding: 10px;
+    transition: .3s;
+}
+
+.iterative-recursive:hover {
+    box-shadow: 0 0 8px #5890FF;
+}
+
+.hover {
+    box-shadow: 0 0 8px #5890FF;
+}

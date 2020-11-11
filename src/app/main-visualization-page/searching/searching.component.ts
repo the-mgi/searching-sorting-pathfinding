@@ -24,7 +24,6 @@ export class SearchingComponent implements OnInit {
 
     barsValue: Bar[];
     isBarsCreated: boolean;
-    number: number[];
     text: string;
 
     isClassAttached: boolean;
@@ -32,10 +31,11 @@ export class SearchingComponent implements OnInit {
     @ViewChild('valueToSearch') searchValue: ElementRef;
     @ViewChildren('cc') barsAll;
 
+    constructor(private elementRef: ElementRef) {
+    }
+
     ngOnInit(): void {
-        this.barsValue = [];
         this.isBarsCreated = false;
-        this.number = [];
         this.isClassAttached = false;
     }
 
@@ -52,7 +52,6 @@ export class SearchingComponent implements OnInit {
         const yourArray = yourArrayInput.value;
 
         this.barsValue = [];
-        this.number.push(2);
         const array = parseArray(yourArray);
         /*
             if array = [1, 2, 3, 4]
@@ -113,10 +112,84 @@ export class SearchingComponent implements OnInit {
                 func(i);
             }
         }, (1000 / this.speedToRun));
+
+        // const allBars = this.barsAll._results;
+        // console.log(allBars[0]);
+        // const a = this.elementRef.nativeElement.querySelectorAll('.bars');
+        //
+        // console.log(a[0].getBoundingClientRect());
+        // console.log(a[1].getBoundingClientRect());
+        //
+        // const x1 = a[0].getBoundingClientRect()['x'];
+        // const y1 = a[0].getBoundingClientRect()['y'];
+        // const x2 = a[1].getBoundingClientRect()['x'];
+        // const y2 = a[1].getBoundingClientRect()['y'];
+        //
+        // console.log(x1, y1);
+        // console.log(x2, y2);
+        //
+        //
+        // a[0].style.position = 'absolute';
+        // a[1].style.position = 'absolute';
+        //
+        // setTimeout(() => {
+        //     a[0].style.left = x2 + 'px';
+        //     a[0].style.top = y2 + 'px';
+        // }, 3000);
+        //
+        // console.log(a[0].getBoundingClientRect());
+        // console.log(a[1].getBoundingClientRect());
     }
 
     private binarySearch(): void {
+        const allBars = this.barsAll._results;
+        const valueToSearch: number = +this.searchValue.nativeElement.value;
 
+        let [startIndex, lastIndex] = [0, allBars.length - 1];
+        let mid = Math.floor((startIndex + lastIndex) / 2);
+
+        while (startIndex <= lastIndex) {
+
+            // tslint:disable-next-line:no-shadowed-variable
+            const func = (startIndex, bar) => {
+                setTimeout(() => {
+                    bar.condition = true;
+                }, (1000 / this.speedToRun) * startIndex);
+            };
+            func(startIndex, allBars[mid]);
+
+
+            // below code is working code, left as reference
+            // tslint:disable-next-line:no-shadowed-variable
+            // const func = (startIndex, bar) => {
+            //     setTimeout(() => {
+            //         bar.condition = true;
+            //     }, (100 / this.speedToRun) * startIndex);
+            // };
+            // func(startIndex, allBars[mid]);
+
+
+            if (valueToSearch === this.barsValue[mid].value) {
+                break;
+            }
+
+            if (valueToSearch < this.barsValue[mid].value) {
+                lastIndex = mid - 1;
+            } else {
+                startIndex = mid + 1;
+            }
+
+            // tslint:disable-next-line:no-shadowed-variable
+            // const f = (startIndex, bar) => {
+            //     setTimeout(() => {
+            //         bar.condition = false;
+            //     }, (100 / this.speedToRun) * startIndex);
+            // };
+            // f(startIndex, allBars[mid]);
+
+            console.log(allBars[mid]);
+            mid = Math.floor((startIndex + lastIndex) / 2);
+        }
     }
 
     private exponentialSearch(): void {
@@ -136,3 +209,5 @@ export class SearchingComponent implements OnInit {
     }
 
 }
+
+// 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 22

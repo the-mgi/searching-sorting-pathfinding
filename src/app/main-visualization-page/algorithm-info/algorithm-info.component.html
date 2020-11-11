@@ -51,9 +51,16 @@
             <mark>O( 1 )</mark>
         </p>
         <h3>Code</h3>
-        <p>Below is the implementation of <code>Linear Search</code> in <mark>Typescript</mark></p>
+        <p>Below is the implementation of <code>Linear Search</code> in
+            <mark>Typescript</mark>
+        </p>
         <!--        <ngx-gist [gistId]="'the-mgi/46785c487efa68a1a087583c47d917cd.js'"></ngx-gist>-->
-        <app-github-gist [gistUrl]="'https://gist.github.com/the-mgi/46785c487efa68a1a087583c47d917cd.js'"></app-github-gist>
+        <button [ngClass]="{'hover': isLinearIterative}" class="iterative-recursive"
+                (click)="isLinearIterative = !isLinearIterative; text = isLinearIterative ? 'Linear Search Iterative' : 'Linear Search Recursive'">{{text}}
+        </button>
+        <app-github-gist *ngIf="isLinearIterative"
+                         [gistUrl]="'https://gist.github.com/the-mgi/46785c487efa68a1a087583c47d917cd.js'"></app-github-gist>
+        <app-github-gist *ngIf="!isLinearIterative"
+                         [gistUrl]="'https://gist.github.com/the-mgi/b339aaed7c5c436507538e73097b2f30.js'"></app-github-gist>
     </div>
 </div>
-

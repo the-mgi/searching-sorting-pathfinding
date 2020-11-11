@@ -166,3 +166,12 @@ function LinearSearch(array: number[], key: number): number {
     });
     return -1;
 }
+
+function LinearSearchRecursive(array: number[], key: number, index: number = 0): number {
+    if (index >= array.length) {
+        return -1;
+    } else if (array[index] === key) {
+        return index;
+    }
+    LinearSearchRecursive(array, key, index += 1);
+}
