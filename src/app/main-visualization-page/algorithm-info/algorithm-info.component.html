@@ -1,66 +1,71 @@
 <div class="main">
     <div class="main-container-info">
 
-        <h1>Linear Search</h1>
+        <h1>{{algorithmData.algorithmName}}</h1>
 
-        <p><span>What is?</span> Linear Search is the most basic type of Sequential Search which can be used to search
-            objects in any given
-            array. It doesn't care if the given array is in sorted order or not, it gives the accurate results in both
-            cases. It can be useful in areas with much less array sizes because of it's time complexity.</p>
+        <p><span>What is?</span> {{algorithmData.whatIs}}</p>
 
-        <p><span>How?</span> It achieves it's desired goal by traversing each element of the given array and checking
-            for if the given key matches the element.</p>
-
+        <p><span>How?</span> {{algorithmData.howDoes}}</p>
         <h3>Asymptotic Complexity Analysis</h3>
-        <p><span>Worst Case?</span> Worst time complexity is denoted by
+        <p><span>Worst Case?</span>
+            Worst time complexity is denoted by
             <mark>O</mark>
             and is equals to
-            <mark>O(n)</mark>
+            <mark>{{algorithmData.worstCaseTime}}</mark>
             as
             <mark>n</mark>
-            denotes the number of total elements in the array. <code>Worst Complexity</code> would be that if
-            the element is not present in the array and traversing the complete array would be of no use.
+            denotes the number of total elements in the array. <code>Worst Complexity</code>
+            {{algorithmData.worstCaseTimeString}}
         </p>
-        <p><span>Average Case?</span> Average time complexity, denoted by
+        <p><span>Average Case?</span>
+            Average time complexity, denoted by
             <mark>θ</mark>
             and is equals to
-            <mark>θ(n)</mark>
+            <mark>{{algorithmData.averageCaseTime}}</mark>
             as
             <mark>n</mark>
-            denotes the number of total elements in the array. <code>Average Complexity</code> would be that element
-            could
-            be present at any index in the array or could be that not present in the array!
+            denotes the number of total elements in the array. <code>Average Complexity</code>
+            {{algorithmData.averageCaseTimeString}}
         </p>
         <p><span>Best Case?</span> Best time complexity, denoted by
             <mark>Ω</mark>
             and is equals to
-            <mark>Ω( 1 )</mark>
+            <mark>{{algorithmData.bestCaseTime}}</mark>
             .
-            <code>Best Complexity</code> would be if the required element
-            is present at first index of the array and the algorithm would be able to get that in only
-            <mark>1</mark>
-            iteration.
+            <code>Best Complexity</code>
+            {{algorithmData.bestCaseTimeString}}
         </p>
 
         <h3>Space Complexity</h3>
         <p><span>Space Complexity</span> Space Complexity, denoted by
             <mark>O</mark>
             .
-            <mark>Linear Search Iterative</mark>
-            does not keep the elements in memory, thereby unlike recursion its <code>Space Complexity</code> would be
-            <mark>O( 1 )</mark>
+            <ng-template [ngIf]="isIterative" [ngIfElse]="recursiveLinearSearch">
+                <mark>{{algorithmData.algorithmName}} Iterative</mark>
+                {{algorithmData.spaceComplexityIterativeString}}
+                <mark>{{algorithmData.spaceComplexityIterative}}</mark>
+            </ng-template>
+
+            <ng-template #recursiveLinearSearch>
+                <mark>{{algorithmData.algorithmName}} Recursive</mark>
+                {{algorithmData.spaceComplexityRecursiveString}}
+                <mark>{{algorithmData.spaceComplexityRecursive}}</mark>
+            </ng-template>
+
         </p>
         <h3>Code</h3>
-        <p>Below is the implementation of <code>Linear Search</code> in
+        <p>Below is the implementation of <code>{{algorithmData.algorithmName}}</code> in
             <mark>Typescript</mark>
         </p>
-        <!--        <ngx-gist [gistId]="'the-mgi/46785c487efa68a1a087583c47d917cd.js'"></ngx-gist>-->
-        <button [ngClass]="{'hover': isLinearIterative}" class="iterative-recursive"
-                (click)="isLinearIterative = !isLinearIterative; text = isLinearIterative ? 'Linear Search Iterative' : 'Linear Search Recursive'">{{text}}
+        <button
+            [ngClass]="{'hover': isIterative}"
+            class="iterative-recursive"
+            (click)="isIterative = !isIterative; text = isIterative ? 'Linear Search Iterative' : 'Linear Search Recursive'">
+            {{text}}
         </button>
-        <app-github-gist *ngIf="isLinearIterative"
-                         [gistUrl]="'https://gist.github.com/the-mgi/46785c487efa68a1a087583c47d917cd.js'"></app-github-gist>
-        <app-github-gist *ngIf="!isLinearIterative"
-                         [gistUrl]="'https://gist.github.com/the-mgi/b339aaed7c5c436507538e73097b2f30.js'"></app-github-gist>
+        <app-github-gist *ngIf="isIterative"
+                         [gistUrl]="algorithmData.sourceCodeIterative"></app-github-gist>
+        <app-github-gist *ngIf="!isIterative"
+                         [gistUrl]="algorithmData.sourceCodeRecursive"></app-github-gist>
     </div>
 </div>

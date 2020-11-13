@@ -1,5 +1,5 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {AlgorithmData} from '../../../sharedClasses/classTemplate';
+import {Component, OnInit} from '@angular/core';
+import {AlgorithmData, searchingAlgorithmsData} from '../../../sharedClasses/classTemplate';
 
 @Component({
     selector: 'app-algorithm-info',
@@ -8,20 +8,14 @@ import {AlgorithmData} from '../../../sharedClasses/classTemplate';
 })
 export class AlgorithmInfoComponent implements OnInit {
 
-    algorithmData: AlgorithmData;
-    isLinearIterative = true;
+    algorithmData: AlgorithmData;  // need to mark this field as @Input() after completing routes section
+    isIterative = true;
     text = 'Linear Search Iterative';
-
-    @ViewChild('radio') input: ElementRef;
 
     constructor() {
     }
 
     ngOnInit(): void {
-    }
-
-    consoleLog(event: Event): void {
-        // console.log(event);
-        console.log(this.input.nativeElement);
+        this.algorithmData = searchingAlgorithmsData[0];
     }
 }
