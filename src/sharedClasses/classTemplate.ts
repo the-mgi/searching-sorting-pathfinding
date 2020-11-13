@@ -9,18 +9,22 @@ export class Blog {
     }
 }
 
-export class AlgorithmData {
-    constructor(
-        public algorithmName: string,
-        public whatIs: string,
-        public sourceCode: string,
-        public howDoes: string,
-        public worstCaseTime: string,
-        public averageCaseTime: string,
-        public bestCaseTime: string,
-        public spaceComplexity: string
-    ) {
-    }
+export interface AlgorithmData {
+    algorithmName: string;
+    whatIs: string;
+    howDoes: string;
+    worstCaseTime: string;
+    worstCaseTimeString: string;
+    averageCaseTime: string;
+    averageCaseTimeString: string;
+    bestCaseTime: string;
+    bestCaseTimeString: string;
+    spaceComplexityIterative: string;
+    spaceComplexityIterativeString: string;
+    spaceComplexityRecursive: string;
+    spaceComplexityRecursiveString: string;
+    sourceCodeIterative?: string;
+    sourceCodeRecursive?: string;
 }
 
 export class Bar {
@@ -79,18 +83,28 @@ export const optionsAvailableSpeedValues: { id: string, name: string }[] = [
 
 ];
 
-export const sortingAlgorithmsData: AlgorithmData[] = [
-    new AlgorithmData(
-        'SelectionSort',
-        'what is this algorithm?',
-        'this is the source code',
-        'this is how it works',
-        'worst time is O(n**2)',
-        'average case is O(n**2)',
-        'best case is O(n**2)',
-        'space complexity O(1)'
-    )
-];
+export const searchingAlgorithmsData: AlgorithmData[] = [
+    {
+        algorithmName: 'Linear Search',
+        whatIs: 'Linear Search is the most basic type of Sequential Search which can be used to search objects in any given array. It doesn\'t care if the given array is in sorted order or not, it gives the accurate results in both cases. It can be useful in areas with much less array sizes because of it\'s time complexity.',
+        howDoes: 'It achieves it\'s desired goal by traversing each element of the given array and checking for if the given key matches the element.',
+        worstCaseTime: 'O( n )',
+        worstCaseTimeString: 'would be that if  the element is not present in the array and traversing the complete array would be of no use.',
+        averageCaseTime: 'θ ( n )',
+        // tslint:disable-next-line:max-line-length
+        averageCaseTimeString: 'would be that element could be present at any index in the array or could be that not present in the array!',
+        bestCaseTime: 'Ω( 1 )',
+        bestCaseTimeString: 'would be if the required element is present at first index of the array and the algorithm would be able to get that in only 1 iteration.',
+        spaceComplexityIterative: 'O( 1 )',
+        spaceComplexityIterativeString: 'does not keep the elements in memory, thereby unlike recursion its SPACE COMPLEXITY would be',
+        spaceComplexityRecursive: 'O( 1 )',
+        spaceComplexityRecursiveString: 'does not keep the elements in memory or rather specifically DOES NOT MAINTAIN A STACK therefore SPACE COMPLEXITY would be',
+        sourceCodeIterative: 'https://gist.github.com/the-mgi/46785c487efa68a1a087583c47d917cd.js',
+        sourceCodeRecursive: 'https://gist.github.com/the-mgi/b339aaed7c5c436507538e73097b2f30.js'
+    },
+    ];
+
+export const sortingAlgorithmsData: AlgorithmData[] = [];
 
 export function findAlgorithmSort(algoName: string): AlgorithmData {
     sortingAlgorithmsData.forEach(singleAlgorithm => {
@@ -174,4 +188,33 @@ function LinearSearchRecursive(array: number[], key: number, index: number = 0):
         return index;
     }
     LinearSearchRecursive(array, key, index += 1);
+}
+
+function BinarySearchIterative(array: number[], key: number): number {
+    let [startIndex, lastIndex] = [0, array.length];
+    let mid = Math.floor((startIndex + lastIndex) / 2);
+    while (startIndex <= lastIndex) {
+        if (key === array[mid]) {
+            return mid;
+        } else if (key < array[mid]) {
+            lastIndex = mid - 1;
+        } else {
+            startIndex = mid + 1;
+        }
+        mid = Math.floor((startIndex + lastIndex) / 2);
+    }
+    return -1;
+}
+
+function BinarySearchRecursive(array: number[], key, startIndex: number, lastIndex: number): number {
+    const mid = Math.floor((startIndex + lastIndex) / 2);
+    if (!(startIndex <= lastIndex)) {
+        return -1;
+    } else if (key === array[mid]) {
+        return mid;
+    } else if (key < array[mid]) {
+        BinarySearchRecursive(array, key, startIndex, mid - 1);
+    } else {
+        BinarySearchRecursive(array, key, mid + 1, lastIndex);
+    }
 }
