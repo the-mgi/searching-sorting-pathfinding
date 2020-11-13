@@ -2,7 +2,13 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /*background-color: #24252A;*/
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
 }
 
 h3 {
@@ -13,41 +19,41 @@ h3 {
     background-color: #5890FF;
     padding: 10px;
     border-radius: 15px;
+    width: fit-content;
 }
 
 li, a, button {
-    font-family: Product-Sans-Regular, sans-serif;
     font-weight: 500;
     font-size: 16px;
     color: black;
     text-decoration: none;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 10%;
-}
-
 .nav-links {
     list-style: none;
 }
 
-.nav-links li {
-    display: inline-block;
-    padding: 0 20px;
+nav {
+    z-index: -1;
 }
 
-.nav-links li a {
+.nav-bar-el {
+    transition: .2s;
+}
+
+li {
+    display: inline-block;
     padding: 15px;
-    transition: all 0.3s ease 0s;
+    transition: .3s;
     border-radius: 15px;
 }
 
-.nav-links li a:hover, #home-link {
-    color: white;
+li:hover {
     background-color: #5890FF;
+}
+
+li:hover a {
+    color: white;
 }
 
 #sign-out {
@@ -55,13 +61,90 @@ header {
     background-color: #fd8686;
 }
 
+#sign-out a {
+    color: white;
+}
+
 #sign-out:hover {
     background-color: #ff5959;
 }
 
-/*.active {*/
-/*    color: white;*/
-/*    background-color: #5890FF;*/
-/*}*/
+@media screen and (min-width: 0) and (max-width: 899px) {
+    .nav-bar-el {
+        visibility: hidden;
+    }
+    .main-div {
+        width: 100%;
+    }
 
+    header {
+        width: 100%;
+        padding: 0;
+        margin: 5% auto;
+    }
+
+    h3 {
+        width: 100%;
+        padding: 20px;
+        justify-content: center;
+    }
+
+    span {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        border: solid white;
+        border-width: 0 5px 5px 0;
+        border-radius: 5px;
+        transform: rotate(-135deg);
+        float: right;
+        margin: 15px 10px 0 0;
+        transition: .3s;
+    }
+
+    h3 span:hover {
+        cursor: pointer;
+        border-color: #b3cafa;
+    }
+
+    .rotate-arrow-up {
+        margin: 8px 10px 0 0;
+        transform: rotate(45deg);
+    }
+
+    .come-down {
+        position: relative;
+        top: -15px;
+        background-color: #5890FF;
+        border: 5px solid #5890ff;
+        border-radius: 5px;
+        visibility: visible;
+    }
+
+    .come-down li {
+        display: block;
+        color: white;
+        width: 100%;
+        margin: 2% auto;
+        border-radius: 3px;
+        border-bottom: 5px solid white;
+    }
+
+    .come-down li:last-child {
+        margin-bottom: 0;
+    }
+
+    a {
+        color: white;
+    }
+
+    li:hover {
+        cursor: pointer;
+        background-color: #4275db;
+    }
+
+    .make-active-clicked {
+        background-color: #4275db;
+    }
+}
 

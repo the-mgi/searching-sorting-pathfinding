@@ -1,11 +1,12 @@
 body {
-    margin: 0 100px 0 100px;
-    background-image: image("src/assets/images/background-main-page.jpg");
+    margin: 0 5% 5% 5%;
+    /*background-image: image("src/assets/images/");*/
     background-size: cover;
     background-attachment: fixed;
+    min-width: 700px;
 }
 
-ul{
+ul {
     font-family: Product-Sans-Regular, sans-serif;
     font-size: 18px;
 }
@@ -21,14 +22,11 @@ strong {
 }
 
 .main-content {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
     border-radius: 15px;
     box-shadow: 0 0 20px 0 #5890FF;
     background-color: white;
     padding: 50px;
-    min-width: 1250px;
+    height: fit-content;
 }
 
 div > div h4 > a {
@@ -36,14 +34,15 @@ div > div h4 > a {
 }
 
 .left-content {
-    width: fit-content;
+    float: left;
+    width: 15%;
+    margin-right: 5%;
 }
 
 .right-content {
-    width: 70%;
-    align-content: center;
-    text-align: justify;
-    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
 }
 
 li strong {
@@ -52,4 +51,28 @@ li strong {
 
 ::selection {
     background-color: yellow;
+}
+
+@media screen and (min-width: 0px) and (max-width: 764px) {
+    .left-content {
+        width: 30%;
+        margin-right: 5%;
+    }
+
+    .right-content {
+        display: flex;
+        flex-direction: column;
+        width: 65%;
+    }
+}
+
+@media screen and (min-width: 765px) and (max-width: 1230px) {
+    .left-content {
+        width: 25%;
+        margin-right: 5%;
+    }
+
+    .right-content {
+        width: 70%;
+    }
 }

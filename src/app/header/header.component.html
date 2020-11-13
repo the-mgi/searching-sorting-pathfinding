@@ -1,11 +1,17 @@
 <header>
-    <h3>themgi</h3>
-    <nav>
-        <ul class="nav-links">
-            <li><a id="home-link" >Home</a></li>
-            <li><a id="blog-link" href="">Blog</a></li>
-            <li><a href="">About Me</a></li>
-            <li><a id="sign-out" href="">Sign Out</a></li>
-        </ul>
-    </nav>
+    <div class="main-div">
+        <div class="header-el">
+            <h3>themgi <span [ngClass]="{'rotate-arrow-up': addClass}" class="rotate-arrow" (click)="addClass = !addClass"></span></h3>
+        </div>
+        <div class="nav-bar-el" [ngClass]="{'come-down': addClass}">
+            <nav>
+                <ul class="nav-links">
+                    <li><a id="home-link" >Home</a></li>
+                    <li><a id="blog-link" href="">Blog</a></li>
+                    <li><a href="">About Me</a></li>
+                    <li id="sign-out" ><a href="">Sign Out</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 </header>
