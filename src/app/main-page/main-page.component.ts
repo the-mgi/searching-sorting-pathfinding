@@ -7,10 +7,6 @@ import {optionsAvailablePathfinding, optionsAvailableSearch, optionsAvailableSor
     styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-    sortingAlgorithms = optionsAvailableSort;
-    searchingAlgorithms = optionsAvailableSearch;
-    pathfindingAlgorithms = optionsAvailablePathfinding;
-
     constructor() {
     }
 

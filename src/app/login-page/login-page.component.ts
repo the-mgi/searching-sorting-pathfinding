@@ -26,7 +26,8 @@ export class LoginPageComponent implements OnInit {
     }
 
     submitForm(emailInput: HTMLInputElement, passwordInput: HTMLInputElement): void {
-        console.log(`Username is": ${emailInput.value}\n and the password is: ${passwordInput.value}`)
+        console.log(`Username is": ${emailInput.value}\n and the password is: ${passwordInput.value}`);
+        // this.authService.SignUp(emailInput.value, passwordInput.value);
     }
 
     myFacebook(): void {

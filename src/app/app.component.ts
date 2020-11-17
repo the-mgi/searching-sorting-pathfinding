@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {trigger, state, style, animate, transition} from '@angular/animations';
+import {AuthenticationService} from './services/authentication.service';
 
 @Component({
     selector: 'app-root',
@@ -24,7 +25,8 @@ import {trigger, state, style, animate, transition} from '@angular/animations';
                 '0.5s'
             )])
         ])
-    ]
+    ],
+    providers: [AuthenticationService]
 })
 
 export class AppComponent {
@@ -35,7 +37,7 @@ export class AppComponent {
         this.isOpen = !this.isOpen;
     }
 
-    constructor() {
+    constructor(private authService: AuthenticationService) {
 
     }
 }
