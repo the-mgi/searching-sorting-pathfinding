@@ -2,10 +2,9 @@
     <div class="main-container-info">
 
         <h1>{{algorithmData.algorithmName}}</h1>
+        <p [innerHTML]="algorithmData.whatIs"></p>
 
-        <p><span>What is?</span> {{algorithmData.whatIs}}</p>
-
-        <p><span>How?</span> {{algorithmData.howDoes}}</p>
+        <p [innerHTML]="algorithmData.howDoes"></p>
         <h3>Asymptotic Complexity Analysis</h3>
         <p><span>Worst Case?</span>
             Worst time complexity is denoted by
@@ -60,8 +59,8 @@
         <button
             [ngClass]="{'hover': isIterative}"
             class="iterative-recursive"
-            (click)="isIterative = !isIterative; text = isIterative ? 'Linear Search Iterative' : 'Linear Search Recursive'">
-            {{text}}
+            (click)="isIterative = !isIterative; text = isIterative ? ' Iterative' : ' Recursive'">
+            {{algorithmData.algorithmName + ' ' + text}}
         </button>
         <app-github-gist *ngIf="isIterative"
                          [gistUrl]="algorithmData.sourceCodeIterative"></app-github-gist>

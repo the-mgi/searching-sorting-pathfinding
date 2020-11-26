@@ -10,12 +10,12 @@ export class AlgorithmInfoComponent implements OnInit {
 
     algorithmData: AlgorithmData;  // need to mark this field as @Input() after completing routes section
     isIterative = true;
-    text = 'Linear Search Iterative';
+    text = 'Iterative';
 
     constructor() {
     }
 
     ngOnInit(): void {
-        this.algorithmData = searchingAlgorithmsData[0];
+        this.algorithmData = searchingAlgorithmsData[1];
     }
 }
