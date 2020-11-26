@@ -22,7 +22,7 @@ import {AboutComponent} from './main-page/about/about.component';
 import { HomeComponent } from './main-page/home/home.component';
 
 const routes: Route[] = [
-    {path: 'home', component: HomeComponent},
+    {path: '', component: HomeComponent},
     {path: 'blog', component: CompleteBlogComponent},
     {path: 'about', component: AboutComponent}
 ];

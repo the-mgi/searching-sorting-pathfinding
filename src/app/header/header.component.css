@@ -45,7 +45,7 @@ nav {
 li {
     display: inline-block;
     padding: 15px;
-    transition: .3s;
+    transition: .3s ease-in-out;
     border-radius: 15px;
 }
 
@@ -58,7 +58,7 @@ li:hover a {
     color: white;
 }
 
-li:active {
+li:focus {
     outline: none;
 }
 
@@ -71,7 +71,7 @@ li:active {
     color: white;
 }
 
-#sign-out:hover {
+#sign-out:hover, .clicked-red {
     background-color: #ff5959;
 }
 
