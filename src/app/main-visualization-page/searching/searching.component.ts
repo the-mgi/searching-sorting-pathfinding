@@ -31,7 +31,7 @@ export class SearchingComponent implements OnInit {
     @ViewChild('valueToSearch') searchValue: ElementRef;
     @ViewChildren('cc') barsAll;
 
-    constructor(private elementRef: ElementRef) {
+    constructor() {
     }
 
     ngOnInit(): void {
@@ -97,20 +97,17 @@ export class SearchingComponent implements OnInit {
         const allBars = this.barsAll._results;
         allBars[0].condition = true;
         const valueToSearch: number = +this.searchValue.nativeElement.value;
+        let index = 0;
         setTimeout(() => {
-            for (let i = 1; i < this.barsValue.length; i++) {
-                if (valueToSearch === this.barsValue[i - 1].value) {
-                    break;
+            const intervalId = setInterval(() => {
+                allBars[index].condition = false;
+                if (this.barsValue[index].value === valueToSearch) {
+                    clearInterval(intervalId);
+                } else {
+                    index += 1;
                 }
-                // tslint:disable-next-line:no-shadowed-variable
-                const func = (i) => {
-                    setTimeout(() => {
-                        allBars[i - 1].condition = false;
-                        allBars[i].condition = true;
-                    }, (1000 / this.speedToRun) * i);
-                };
-                func(i);
-            }
+                allBars[index].condition = true;
+            }, (1000 / this.speedToRun));
         }, (1000 / this.speedToRun));
 
         // const allBars = this.barsAll._results;
@@ -139,58 +136,31 @@ export class SearchingComponent implements OnInit {
         //
         // console.log(a[0].getBoundingClientRect());
         // console.log(a[1].getBoundingClientRect());
-    }
+    }  // completed with QUALITY CODE. No JUGAR I SWAER.. :)
 
     private binarySearch(): void {
         const allBars = this.barsAll._results;
         const valueToSearch: number = +this.searchValue.nativeElement.value;
 
-        let [startIndex, lastIndex] = [0, allBars.length - 1];
+        let [startIndex, lastIndex] = [0, this.barsAll.length];
         let mid = Math.floor((startIndex + lastIndex) / 2);
-
-        while (startIndex <= lastIndex) {
-
-            // tslint:disable-next-line:no-shadowed-variable
-            const func = (startIndex, bar) => {
-                setTimeout(() => {
-                    bar.condition = true;
-                }, (1000 / this.speedToRun) * startIndex);
-            };
-            func(startIndex, allBars[mid]);
-
-
-            // below code is working code, left as reference
-            // tslint:disable-next-line:no-shadowed-variable
-            // const func = (startIndex, bar) => {
-            //     setTimeout(() => {
-            //         bar.condition = true;
-            //     }, (100 / this.speedToRun) * startIndex);
-            // };
-            // func(startIndex, allBars[mid]);
-
-
-            if (valueToSearch === this.barsValue[mid].value) {
-                break;
-            }
-
-            if (valueToSearch < this.barsValue[mid].value) {
-                lastIndex = mid - 1;
-            } else {
-                startIndex = mid + 1;
-            }
-
-            // tslint:disable-next-line:no-shadowed-variable
-            // const f = (startIndex, bar) => {
-            //     setTimeout(() => {
-            //         bar.condition = false;
-            //     }, (100 / this.speedToRun) * startIndex);
-            // };
-            // f(startIndex, allBars[mid]);
-
-            console.log(allBars[mid]);
-            mid = Math.floor((startIndex + lastIndex) / 2);
-        }
-    }
+        allBars[mid].condition = true;
+        setTimeout(() => {
+            const intervalId = setInterval(() => {
+                const currentValueNumber = this.barsValue[mid].value;
+                allBars[mid].condition = false;
+                if (currentValueNumber === valueToSearch) {
+                    clearInterval(intervalId);
+                } else if (currentValueNumber < valueToSearch) {
+                    startIndex = mid + 1;
+                } else {
+                    lastIndex = mid - 1;
+                }
+                mid = Math.floor((startIndex + lastIndex) / 2);
+                allBars[mid].condition = true;
+            }, (1000 / this.speedToRun));
+        }, (1000 / this.speedToRun));
+    }  // completed with QUALITY CODE. No JUGAR I SWAER.. :)
 
     private exponentialSearch(): void {
 
@@ -211,3 +181,5 @@ export class SearchingComponent implements OnInit {
 }
 
 // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 22
+
+// 5, 10, 15, 18, 19, 22
