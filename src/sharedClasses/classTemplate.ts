@@ -86,23 +86,40 @@ export const optionsAvailableSpeedValues: { id: string, name: string }[] = [
 export const searchingAlgorithmsData: AlgorithmData[] = [
     {
         algorithmName: 'Linear Search',
-        whatIs: 'Linear Search is the most basic type of Sequential Search which can be used to search objects in any given array. It doesn\'t care if the given array is in sorted order or not, it gives the accurate results in both cases. It can be useful in areas with much less array sizes because of it\'s time complexity.',
-        howDoes: 'It achieves it\'s desired goal by traversing each element of the given array and checking for if the given key matches the element.',
+        whatIs: '<span><strong><u>What is? </u></strong></span>Linear Search is the most basic type of <mark>Sequential Search</mark> which can be used to search objects in any given array. It doesn\'t care if the given array is in sorted order or not, it gives the accurate results in both cases. It can be useful in areas with much less array sizes because of it\'s time complexity.',
+        howDoes: '<span><strong><u>How?</u></strong></span> It achieves it\'s desired goal by traversing each element of the given array and checking for if the given key matches the element.',
         worstCaseTime: 'O( n )',
         worstCaseTimeString: 'would be that if  the element is not present in the array and traversing the complete array would be of no use.',
         averageCaseTime: 'θ ( n )',
         // tslint:disable-next-line:max-line-length
-        averageCaseTimeString: 'would be that element could be present at any index in the array or could be that not present in the array!',
+        averageCaseTimeString: 'would be that element could be present at any index in the array',
         bestCaseTime: 'Ω( 1 )',
         bestCaseTimeString: 'would be if the required element is present at first index of the array and the algorithm would be able to get that in only 1 iteration.',
         spaceComplexityIterative: 'O( 1 )',
-        spaceComplexityIterativeString: 'does not keep the elements in memory, thereby unlike recursion its SPACE COMPLEXITY would be',
+        spaceComplexityIterativeString: 'does not keep the elements in memory, thereby its SPACE COMPLEXITY would be',
         spaceComplexityRecursive: 'O( 1 )',
         spaceComplexityRecursiveString: 'does not keep the elements in memory or rather specifically DOES NOT MAINTAIN A STACK therefore SPACE COMPLEXITY would be',
         sourceCodeIterative: 'https://gist.github.com/the-mgi/46785c487efa68a1a087583c47d917cd.js',
         sourceCodeRecursive: 'https://gist.github.com/the-mgi/b339aaed7c5c436507538e73097b2f30.js'
     },
-    ];
+    {
+        algorithmName: 'Binary Search',
+        whatIs: '<span><strong><u>What is?</u></strong></span> Binary Search belongs to the <mark>Interval Search</mark> category which is also used to search for the required object in the given array but more optimally than the <code>Linear Search</code> as it is <mark>Sequential</mark>. It requires array to be in <mark>SORTED ORDER</mark>. It is feasible to be used to searhc for elements with much larger sizes!',
+        howDoes: '<span><strong><u>How?</u></strong></span> It actually works on the formula of <code>mid = (startIndex + lastIndex) / 2</code>, calculating <mark>middle</mark> index of the array, where for the first iteration <code>startIndex = 0</code> and <code>lastIndex = list.length</code>. It checks for the <mark>key value</mark> to be equal to the value at <code>list[mid]</code>. If it returns <code>true</code>, spits out the index of the key. Otherwise it keeps calculating the <code>mid</code> and if the value at <code>list[mid]</code> is greater than <code>key</code> value then <code>lastIndex = mid -  1</code> else <code>startIndex = mid + 1</code> because we know that the array is sorted, thereby smaller value will be in the first half and larger will be in the second half.',
+        worstCaseTime: 'O( log n )',
+        worstCaseTimeString: 'would be the case that if the element to be searched is not present in the array. Elements would be traversed without any use but not all elements will be traversed of course, because of how BINARY SEARCH works.',
+        averageCaseTime: 'O( log n )',
+        averageCaseTimeString: 'would be the case that element could be anywhere in the array.',
+        bestCaseTime: 'O( 1 )',
+        bestCaseTimeString: 'would be if the required element is present at middle index in first iteration of the array.',
+        spaceComplexityIterative: 'O( 1 )',
+        spaceComplexityIterativeString: 'does not keep the elements in memory, thereby its SPACE COMPLEXITY would be',
+        spaceComplexityRecursive: 'O( 1 )',
+        spaceComplexityRecursiveString: 'does not keep the elements in memory or rather specifically DOES NOT MAINTAIN A STACK therefore SPACE COMPLEXITY would be',
+        sourceCodeIterative: 'https://gist.github.com/the-mgi/fb5890f55b40110a82d13015de78a7a9.js',
+        sourceCodeRecursive: 'https://gist.github.com/the-mgi/893fa516cf3ddecf9269b476fe8eef18.js'
+    }
+];
 
 export const sortingAlgorithmsData: AlgorithmData[] = [];
 
