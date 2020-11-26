@@ -101,6 +101,9 @@ export class SearchingComponent implements OnInit {
         setTimeout(() => {
             const intervalId = setInterval(() => {
                 allBars[index].condition = false;
+                if (index >= this.barsValue.length) {
+                    clearInterval(intervalId);
+                }
                 if (this.barsValue[index].value === valueToSearch) {
                     clearInterval(intervalId);
                 } else {
@@ -109,34 +112,7 @@ export class SearchingComponent implements OnInit {
                 allBars[index].condition = true;
             }, (1000 / this.speedToRun));
         }, (1000 / this.speedToRun));
-
-        // const allBars = this.barsAll._results;
-        // console.log(allBars[0]);
-        // const a = this.elementRef.nativeElement.querySelectorAll('.bars');
-        //
-        // console.log(a[0].getBoundingClientRect());
-        // console.log(a[1].getBoundingClientRect());
-        //
-        // const x1 = a[0].getBoundingClientRect()['x'];
-        // const y1 = a[0].getBoundingClientRect()['y'];
-        // const x2 = a[1].getBoundingClientRect()['x'];
-        // const y2 = a[1].getBoundingClientRect()['y'];
-        //
-        // console.log(x1, y1);
-        // console.log(x2, y2);
-        //
-        //
-        // a[0].style.position = 'absolute';
-        // a[1].style.position = 'absolute';
-        //
-        // setTimeout(() => {
-        //     a[0].style.left = x2 + 'px';
-        //     a[0].style.top = y2 + 'px';
-        // }, 3000);
-        //
-        // console.log(a[0].getBoundingClientRect());
-        // console.log(a[1].getBoundingClientRect());
-    }  // completed with QUALITY CODE. No JUGAR I SWAER.. :)
+    } // this line is being removed because i remembered i am NOOB
 
     private binarySearch(): void {
         const allBars = this.barsAll._results;
@@ -149,6 +125,9 @@ export class SearchingComponent implements OnInit {
             const intervalId = setInterval(() => {
                 const currentValueNumber = this.barsValue[mid].value;
                 allBars[mid].condition = false;
+                if (!(startIndex <= lastIndex)) {
+                    clearInterval(intervalId);
+                }
                 if (currentValueNumber === valueToSearch) {
                     clearInterval(intervalId);
                 } else if (currentValueNumber < valueToSearch) {
@@ -158,9 +137,10 @@ export class SearchingComponent implements OnInit {
                 }
                 mid = Math.floor((startIndex + lastIndex) / 2);
                 allBars[mid].condition = true;
+                console.log('Value of mid is: ' + mid);
             }, (1000 / this.speedToRun));
         }, (1000 / this.speedToRun));
-    }  // completed with QUALITY CODE. No JUGAR I SWAER.. :)
+    }
 
     private exponentialSearch(): void {
 
@@ -175,11 +155,36 @@ export class SearchingComponent implements OnInit {
     }
 
     private jumpSearch(): void {
+        const allBars = this.barsAll._results;
+        const valueToSearch: number = +this.searchValue.nativeElement.value;
 
+        const jumpSize = Math.floor(Math.sqrt(this.barsValue.length));
+        let val = jumpSize;
+        while (val <= this.barsValue.length) {
+            if ((this.barsValue[val].value > valueToSearch) || (val >= this.barsValue.length)) {
+                break;
+            } else {
+                val = val + jumpSize;
+            }
+        }
+        let i = (val - jumpSize);
+        allBars[i].condition = true;
+        val = val > this.barsValue.length ? this.barsValue.length : val;
+        setTimeout(() => {
+            const intervalId = setInterval(() => {
+                allBars[i].condition = false;
+                if (i < val) {
+                    if (this.barsValue[i].value === valueToSearch) {
+                        clearInterval(intervalId);
+                    } else {
+                        i += 1;
+                    }
+                    allBars[i].condition = true;
+                } else {
+                    clearInterval(intervalId);
+                }
+            }, (1000 / this.speedToRun));
+        }, (1000 / this.speedToRun));
     }
 
 }
-
-// 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 22
-
-// 5, 10, 15, 18, 19, 22
