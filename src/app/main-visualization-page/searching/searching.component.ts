@@ -104,16 +104,16 @@ export class SearchingComponent implements OnInit {
         let index = 0;
         setTimeout(() => {
             const intervalId = setInterval(() => {
-                allBars[index].condition = false;
                 if (index >= this.barsValue.length) {
                     clearInterval(intervalId);
                 }
                 if (this.barsValue[index].value === this.valueToSearch) {
                     clearInterval(intervalId);
                 } else {
+                    allBars[index].condition = false;
                     index += 1;
+                    allBars[index].condition = true;
                 }
-                allBars[index].condition = true;
             }, (SPEED_TO_RUN / this.speedToRun));
         }, (SPEED_TO_RUN / this.speedToRun));
     } // this line is being removed because i remembered i am NOOB
@@ -187,7 +187,44 @@ export class SearchingComponent implements OnInit {
     }
 
     private exponentialSearch(): void {
-
+        const allBars = this.barsAll._results;
+        if (this.barsValue[0].value > this.valueToSearch) {
+            return;
+        }
+        let i = 1;
+        while ((i < this.barsValue.length) && (this.barsValue[i].value <= this.valueToSearch)) {
+            i *= 2;
+        }
+        let [startIndex, lastIndex] = [Math.floor(i / 2), i];
+        lastIndex = Math.min(lastIndex, this.barsValue.length - 1);
+        let mid = this.calculateMid(startIndex, lastIndex);
+        allBars[mid].condition = true;
+        setTimeout(() => {
+            const intervalId = setInterval(() => {
+                if (startIndex <= lastIndex) {
+                    if (this.barsValue[mid].value === this.valueToSearch) {
+                        clearInterval(intervalId);
+                        return;
+                    }
+                    allBars[mid].condition = false;
+                    if (this.valueToSearch < this.barsValue[mid].value) {
+                        lastIndex = mid - 1;
+                    } else {
+                        startIndex = mid + 1;
+                    }
+                    mid = Math.floor((startIndex + lastIndex) / 2);
+                    if (mid >= this.barsValue.length) {
+                        clearInterval(intervalId);
+                        return;
+                    }
+                    allBars[mid].condition = true;
+                } else {
+                    allBars[mid].condition = false;
+                    clearInterval(intervalId);
+                    return;
+                }
+            }, (SPEED_TO_RUN / this.speedToRun));
+        }, (SPEED_TO_RUN / this.speedToRun));
     }
 
     private fibonacciSearch(): void {
@@ -196,11 +233,10 @@ export class SearchingComponent implements OnInit {
 
     private jumpSearch(): void {
         const allBars = this.barsAll._results;
-
         const jumpSize = Math.floor(Math.sqrt(this.barsValue.length));
         let val = jumpSize;
-        while (val <= this.barsValue.length) {
-            if ((this.barsValue[val].value > this.valueToSearch) || (val >= this.barsValue.length)) {
+        while (val < this.barsValue.length) {
+            if (this.barsValue[val].value > this.valueToSearch) {
                 break;
             } else {
                 val = val + jumpSize;
@@ -208,11 +244,11 @@ export class SearchingComponent implements OnInit {
         }
         let i = (val - jumpSize);
         allBars[i].condition = true;
-        val = val > this.barsValue.length ? this.barsValue.length : val;
+        val = val > this.barsValue.length ? this.barsValue.length - 1 : val;
         setTimeout(() => {
             const intervalId = setInterval(() => {
-                allBars[i].condition = false;
                 if (i < val) {
+                    allBars[i].condition = false;
                     if (this.barsValue[i].value === this.valueToSearch) {
                         clearInterval(intervalId);
                     } else {
@@ -226,3 +262,5 @@ export class SearchingComponent implements OnInit {
         }, (SPEED_TO_RUN / this.speedToRun));
     }
 }
+
+// please change man
