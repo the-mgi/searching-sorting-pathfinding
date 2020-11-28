@@ -1,3 +1,5 @@
+const SPEED_TO_RUN = 1000;
+
 import {Component, ElementRef, OnInit, ViewChild, ViewChildren} from '@angular/core';
 import {
     Algorithm,
@@ -27,6 +29,8 @@ export class SearchingComponent implements OnInit {
     text: string;
 
     isClassAttached: boolean;
+
+    valueToSearch: number;
 
     @ViewChild('valueToSearch') searchValue: ElementRef;
     @ViewChildren('cc') barsAll;
@@ -90,13 +94,13 @@ export class SearchingComponent implements OnInit {
                     this.jumpSearch();
                     break;
             }
-        }, 1000);
+        }, SPEED_TO_RUN);
+        this.valueToSearch = +this.searchValue.nativeElement.value;
     }
 
     private linearSearch(): void {
         const allBars = this.barsAll._results;
         allBars[0].condition = true;
-        const valueToSearch: number = +this.searchValue.nativeElement.value;
         let index = 0;
         setTimeout(() => {
             const intervalId = setInterval(() => {
@@ -104,42 +108,52 @@ export class SearchingComponent implements OnInit {
                 if (index >= this.barsValue.length) {
                     clearInterval(intervalId);
                 }
-                if (this.barsValue[index].value === valueToSearch) {
+                if (this.barsValue[index].value === this.valueToSearch) {
                     clearInterval(intervalId);
                 } else {
                     index += 1;
                 }
                 allBars[index].condition = true;
-            }, (1000 / this.speedToRun));
-        }, (1000 / this.speedToRun));
+            }, (SPEED_TO_RUN / this.speedToRun));
+        }, (SPEED_TO_RUN / this.speedToRun));
     } // this line is being removed because i remembered i am NOOB
+
+    // calculateMid = () => {
+    //     return
+    // }
 
     private binarySearch(): void {
         const allBars = this.barsAll._results;
-        const valueToSearch: number = +this.searchValue.nativeElement.value;
-
+        console.log(allBars.length);
+        console.log(this.barsAll.length);
         let [startIndex, lastIndex] = [0, this.barsAll.length];
         let mid = Math.floor((startIndex + lastIndex) / 2);
         allBars[mid].condition = true;
         setTimeout(() => {
             const intervalId = setInterval(() => {
-                const currentValueNumber = this.barsValue[mid].value;
-                allBars[mid].condition = false;
-                if (!(startIndex <= lastIndex)) {
-                    clearInterval(intervalId);
-                }
-                if (currentValueNumber === valueToSearch) {
-                    clearInterval(intervalId);
-                } else if (currentValueNumber < valueToSearch) {
-                    startIndex = mid + 1;
+                if (startIndex <= lastIndex) {
+                    allBars[mid].condition = false;
+                    if (this.valueToSearch === this.barsValue[mid].value) {
+                        console.log('completed found..!!');
+                        clearInterval(intervalId);
+                    } else if (this.valueToSearch < this.barsValue[mid].value) {
+                        lastIndex = mid - 1;
+                    } else {
+                        startIndex = mid + 1;
+                    }
+                    mid = Math.floor((startIndex + lastIndex) / 2);
+                    allBars[mid].condition = true;
                 } else {
-                    lastIndex = mid - 1;
+                    clearInterval(intervalId);
+                    console.log('completed not found');
                 }
-                mid = Math.floor((startIndex + lastIndex) / 2);
-                allBars[mid].condition = true;
-                console.log('Value of mid is: ' + mid);
-            }, (1000 / this.speedToRun));
-        }, (1000 / this.speedToRun));
+            }, (SPEED_TO_RUN / this.speedToRun));
+            console.log('we are good 01..!');
+        }, (SPEED_TO_RUN / this.speedToRun));
+    }
+
+    private interpolationSearch(): void {
+
     }
 
     private exponentialSearch(): void {
@@ -150,18 +164,13 @@ export class SearchingComponent implements OnInit {
 
     }
 
-    private interpolationSearch(): void {
-
-    }
-
     private jumpSearch(): void {
         const allBars = this.barsAll._results;
-        const valueToSearch: number = +this.searchValue.nativeElement.value;
 
         const jumpSize = Math.floor(Math.sqrt(this.barsValue.length));
         let val = jumpSize;
         while (val <= this.barsValue.length) {
-            if ((this.barsValue[val].value > valueToSearch) || (val >= this.barsValue.length)) {
+            if ((this.barsValue[val].value > this.valueToSearch) || (val >= this.barsValue.length)) {
                 break;
             } else {
                 val = val + jumpSize;
@@ -174,7 +183,7 @@ export class SearchingComponent implements OnInit {
             const intervalId = setInterval(() => {
                 allBars[i].condition = false;
                 if (i < val) {
-                    if (this.barsValue[i].value === valueToSearch) {
+                    if (this.barsValue[i].value === this.valueToSearch) {
                         clearInterval(intervalId);
                     } else {
                         i += 1;
@@ -183,8 +192,7 @@ export class SearchingComponent implements OnInit {
                 } else {
                     clearInterval(intervalId);
                 }
-            }, (1000 / this.speedToRun));
-        }, (1000 / this.speedToRun));
+            }, (SPEED_TO_RUN / this.speedToRun));
+        }, (SPEED_TO_RUN / this.speedToRun));
     }
-
 }
