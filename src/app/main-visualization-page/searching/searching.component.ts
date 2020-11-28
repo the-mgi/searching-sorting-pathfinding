@@ -118,13 +118,13 @@ export class SearchingComponent implements OnInit {
         }, (SPEED_TO_RUN / this.speedToRun));
     } // this line is being removed because i remembered i am NOOB
 
-    // calculateMid = () => {
-    //     return
-    // }
+    calculateMid = (startIndex: number, lastIndex: number) => {
+        return Math.floor((startIndex + lastIndex) / 2);
+    }
 
     private binarySearch(): void {
         const allBars = this.barsAll._results;
-        let [startIndex, lastIndex] = [0, this.barsAll.length];
+        let [startIndex, lastIndex] = [0, this.barsValue.length];
         let mid = Math.floor((startIndex + lastIndex) / 2);
         allBars[mid].condition = true;
         setTimeout(() => {
@@ -151,8 +151,39 @@ export class SearchingComponent implements OnInit {
         }, (SPEED_TO_RUN / this.speedToRun));
     }
 
-    private interpolationSearch(): void {
+    calculatePosition = (startIndex, lastIndex) => {
+        return Math.floor(startIndex + (
+            (lastIndex - startIndex) /
+            (this.barsValue[lastIndex].value - this.barsValue[startIndex].value) *
+            (this.valueToSearch - this.barsValue[startIndex].value)));
+    }
 
+    private interpolationSearch(): void {
+        const allBars = this.barsAll._results;
+        let [startIndex, lastIndex] = [0, this.barsValue.length - 1];
+        let mid = this.calculatePosition(startIndex, lastIndex);
+        allBars[mid].condition = true;
+        setTimeout(() => {
+            const intervalId = setInterval(() => {
+                if ((startIndex > lastIndex) || (lastIndex < 0) || (startIndex >= this.barsValue.length)) {
+                    clearInterval(intervalId);
+                } else {
+                    const currentValue = this.barsValue[mid].value;
+                    allBars[mid].condition = false;
+                    if (this.valueToSearch === currentValue) {
+                        clearInterval(intervalId);
+                    } else if (this.valueToSearch < currentValue) {
+                        lastIndex = mid - 1;
+                    } else {
+                        startIndex = mid + 1;
+                    }
+                    mid = this.calculatePosition(startIndex, lastIndex);
+                    if (mid >= 0 && mid < this.barsValue.length) {
+                        allBars[mid].condition = true;
+                    }
+                }
+            }, (SPEED_TO_RUN / this.speedToRun));
+        }, (SPEED_TO_RUN / this.speedToRun));
     }
 
     private exponentialSearch(): void {
