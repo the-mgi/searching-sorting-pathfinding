@@ -91,3 +91,47 @@ function JumpSearchRecursive(array: number[], key: number): number {
     ansIndex = iterateOverRange(val - jumpSize, val);
     return ansIndex;
 }
+
+function InterpolationSearchIterative(array: number[], key: number): number {
+    let startIndex = 0;
+    let lastIndex = array.length - 1;
+    while (startIndex <= lastIndex && key >= array[startIndex] && key <= array[lastIndex]) {
+        const position =
+            Math.floor(startIndex + (
+                (lastIndex - startIndex) /
+                (array[lastIndex] - array[startIndex]) *
+                (key - array[startIndex])));
+        if (array[position] === key) {
+            return position;
+        } else if (array[position] > key) {
+            lastIndex = position - 1;
+        } else {
+            startIndex = position + 1;
+        }
+    }
+    return -1;
+}
+
+function InterpolationSearchRecursive(
+    array: number[],
+    key: number,
+    startIndex: number,
+    lastIndex: number
+): number {
+    const position =
+        Math.floor(startIndex + (
+            (lastIndex - startIndex) /
+            (array[lastIndex] - array[startIndex]) *
+            (key - array[startIndex])));
+    if (startIndex <= lastIndex && key >= array[startIndex] && key <= array[lastIndex]) {
+        if (array[position] === key) {
+            return position;
+        } else if (key < array[position]) {
+            lastIndex = position - 1;
+        } else {
+            startIndex = position + 1;
+        }
+        return InterpolationSearchRecursive(array, key, startIndex, lastIndex);
+    }
+    return -1;
+}
