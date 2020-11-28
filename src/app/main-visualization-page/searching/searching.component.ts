@@ -1,5 +1,3 @@
-const SPEED_TO_RUN = 1000;
-
 import {Component, ElementRef, OnInit, ViewChild, ViewChildren} from '@angular/core';
 import {
     Algorithm,
@@ -9,6 +7,8 @@ import {
     parseArray,
     randomColor
 } from '../../../sharedClasses/classTemplate';
+
+const SPEED_TO_RUN = 1000;
 
 @Component({
     selector: 'app-searching',
@@ -124,31 +124,30 @@ export class SearchingComponent implements OnInit {
 
     private binarySearch(): void {
         const allBars = this.barsAll._results;
-        console.log(allBars.length);
-        console.log(this.barsAll.length);
         let [startIndex, lastIndex] = [0, this.barsAll.length];
         let mid = Math.floor((startIndex + lastIndex) / 2);
         allBars[mid].condition = true;
         setTimeout(() => {
             const intervalId = setInterval(() => {
-                if (startIndex <= lastIndex) {
+                if ((startIndex > lastIndex) || (lastIndex < 0) || (startIndex >= this.barsValue.length)) {
+                    clearInterval(intervalId);
+                } else {
+                    const currentValue = this.barsValue[mid].value;
                     allBars[mid].condition = false;
-                    if (this.valueToSearch === this.barsValue[mid].value) {
-                        console.log('completed found..!!');
+                    if (this.valueToSearch === currentValue) {
                         clearInterval(intervalId);
-                    } else if (this.valueToSearch < this.barsValue[mid].value) {
+                    } else if (this.valueToSearch < currentValue) {
                         lastIndex = mid - 1;
                     } else {
                         startIndex = mid + 1;
                     }
                     mid = Math.floor((startIndex + lastIndex) / 2);
-                    allBars[mid].condition = true;
-                } else {
-                    clearInterval(intervalId);
-                    console.log('completed not found');
+                    if (mid >= 0 && mid < this.barsValue.length) {
+                        allBars[mid].condition = true;
+
+                    }
                 }
             }, (SPEED_TO_RUN / this.speedToRun));
-            console.log('we are good 01..!');
         }, (SPEED_TO_RUN / this.speedToRun));
     }
 
