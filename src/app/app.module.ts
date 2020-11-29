@@ -19,12 +19,19 @@ import {SortingComponent} from './main-visualization-page/sorting/sorting.compon
 import {PathfindingComponent} from './main-visualization-page/pathfinding/pathfinding.component';
 import {GithubGistComponent} from './github-gist/github-gist.component';
 import {AboutComponent} from './main-page/about/about.component';
-import { HomeComponent } from './main-page/home/home.component';
+import {HomeComponent} from './main-page/home/home.component';
+import {BlogPreviewComponent} from './main-page/complete-blog/blog-preview/blog-preview.component';
 
 const routes: Route[] = [
     {path: '', component: HomeComponent},
-    {path: 'blog', component: CompleteBlogComponent},
-    {path: 'about', component: AboutComponent}
+    {
+        path: 'blog-page', component: CompleteBlogComponent,
+        children: [
+            {path: 'blogs', component: BlogPreviewComponent},
+            {path: ':blog-id', component: BlogComponent}
+        ]
+    },
+    {path: 'about-me', component: AboutComponent}
 ];
 
 @NgModule({
@@ -44,7 +51,8 @@ const routes: Route[] = [
         PathfindingComponent,
         GithubGistComponent,
         AboutComponent,
-        HomeComponent
+        HomeComponent,
+        BlogPreviewComponent
     ],
     imports: [
         BrowserModule,
