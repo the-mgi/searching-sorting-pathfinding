@@ -7,6 +7,7 @@ import {
     parseArray,
     randomColor
 } from '../../../sharedClasses/classTemplate';
+import {ActivatedRoute, Router} from '@angular/router';
 
 const SPEED_TO_RUN = 1000;
 
@@ -23,6 +24,7 @@ export class SearchingComponent implements OnInit {
     algorithm = 'Algorithm';
     speedToRun: number;
     isVisualizeButtonDisabled = false;
+    selectAlgorithm = 'Select Algorithm';
 
     barsValue: Bar[];
     isBarsCreated: boolean;
@@ -35,12 +37,15 @@ export class SearchingComponent implements OnInit {
     @ViewChild('valueToSearch') searchValue: ElementRef;
     @ViewChildren('cc') barsAll;
 
-    constructor() {
+    constructor(private activatedRoute: ActivatedRoute, private router: Router) {
     }
 
     ngOnInit(): void {
         this.isBarsCreated = false;
         this.isClassAttached = false;
+        const namee = this.activatedRoute.snapshot.params['name-algo'];
+        this.setAlgorithmName({nameAlgo: namee});
+        this.selectAlgorithm = namee;
     }
 
     setAlgorithmName(event: { nameAlgo: string }): void {

@@ -21,17 +21,29 @@ import {GithubGistComponent} from './github-gist/github-gist.component';
 import {AboutComponent} from './main-page/about/about.component';
 import {HomeComponent} from './main-page/home/home.component';
 import {BlogPreviewComponent} from './main-page/complete-blog/blog-preview/blog-preview.component';
+import {ProfileTitleComponent} from './main-page/complete-blog/blog/profile-title/profile-title.component';
 
 const routes: Route[] = [
-    {path: '', component: HomeComponent},
+    {path: '', component: LoginPageComponent},
     {
-        path: 'blog-page', component: CompleteBlogComponent,
-        children: [
-            {path: 'blogs', component: BlogPreviewComponent},
-            {path: ':blog-id', component: BlogComponent}
-        ]
+        path: 'home', component: MainPageComponent, children: [
+            {path: 'main', component: HomeComponent},
+            {path: 'about-me', component: AboutComponent},
+            {
+                path: 'blog-page', component: CompleteBlogComponent, children: [
+                    {path: 'blogs', component: BlogPreviewComponent},
+                    {path: ':blog-id', component: BlogComponent}
+                ]
+            }]
     },
-    {path: 'about-me', component: AboutComponent}
+    {
+        path: 'visualizer', component: MainVisualizationPageComponent,
+        children: [
+            {path: 'searching/:name-algo', component: SearchingComponent},
+            {path: 'sorting/:name-algo', component: SortingComponent},
+            {path: 'pathfinding/:name-algo', component: PathfindingComponent}
+        ]
+    }
 ];
 
 @NgModule({
@@ -52,7 +64,8 @@ const routes: Route[] = [
         GithubGistComponent,
         AboutComponent,
         HomeComponent,
-        BlogPreviewComponent
+        BlogPreviewComponent,
+        ProfileTitleComponent
     ],
     imports: [
         BrowserModule,

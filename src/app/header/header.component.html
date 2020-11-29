@@ -7,9 +7,10 @@
         <div class="nav-bar-el" [ngClass]="{'come-down': addClass}">
             <nav>
                 <ul class="nav-links">
-                    <li routerLinkActive="clicked" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['']"><a id="home-link">Home</a></li>
-                    <li routerLinkActive="clicked" [routerLink]="['/blog-page/blogs']"><a>Blog</a></li>
-                    <li routerLinkActive="clicked" [routerLink]="['/about-me']"><a>About us</a></li>
+                    <li routerLinkActive="clicked" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/home', 'main']"><a
+                        id="home-link">Home</a></li>
+                    <li routerLinkActive="clicked" [routerLink]="['/home', 'blog-page', 'blogs']"><a>Blog</a></li>
+                    <li routerLinkActive="clicked" [routerLink]="['/home', 'about-me']"><a>About us</a></li>
                     <li id="sign-out" routerLinkActive="clicked-red"><a>Sign Out</a></li>
                 </ul>
             </nav>

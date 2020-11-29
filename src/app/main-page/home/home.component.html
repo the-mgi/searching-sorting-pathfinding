@@ -4,15 +4,18 @@
         <h4><a href="">Algorithm?</a></h4>
         <h4><a href="#sort-algo">Sorting Algorithms</a></h4>
         <ul>
-            <li *ngFor="let sort of sortingAlgorithms"><a href="">{{sort.name}}</a></li>
+            <li *ngFor="let sort of sortingAlgorithms"><a
+                [routerLink]="['/visualizer', 'sorting', sort.name]">{{sort.name}}</a></li>
         </ul>
         <h4><a href="#search-algo">Searching Algorithms</a></h4>
         <ul>
-            <li *ngFor="let search of searchingAlgorithms"><a href="">{{search.name}}</a></li>
+            <li *ngFor="let search of searchingAlgorithms"><a
+                [routerLink]="['/visualizer', 'searching', search.name]">{{search.name}}</a></li>
         </ul>
         <h4><a href="#pathfinding-algo">Pathfinding Algorithm</a></h4>
         <ul>
-            <li *ngFor="let path of pathfindingAlgorithms"><a href="">{{path.name}}</a></li>
+            <li *ngFor="let path of pathfindingAlgorithms"><a
+                [routerLink]="['/visualizer', 'pathfinding', path.name]">{{path.name}}</a></li>
         </ul>
     </div>
     <div class="right-content">

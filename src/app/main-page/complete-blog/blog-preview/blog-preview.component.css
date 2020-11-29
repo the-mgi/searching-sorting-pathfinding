@@ -39,9 +39,8 @@
     justify-content: flex-end;
 }
 
-.right p:last-child {
-    margin: 0 30px;
-    color: #cbdbf8;
+.for-margin {
+    margin-right: 25px;
 }
 
 .hover-written-by {
@@ -58,6 +57,10 @@
     padding: 5px;
     border-radius: 3px;
     font-family: Product-Sans-Regular, sans-serif;
+}
+
+::selection {
+    background-color: yellow;
 }
 
 @media screen and (min-width: 0) and (max-width: 1000px) {

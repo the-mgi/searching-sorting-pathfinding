@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AlgorithmData, optionsAvailableSearch, searchingAlgorithmsData} from '../../sharedClasses/classTemplate';
 
 
 @Component({
@@ -8,11 +9,18 @@ import {Component, OnInit} from '@angular/core';
     providers: []
 })
 export class MainVisualizationPageComponent implements OnInit {
+    isDisplayed = false;
+    algoName: string;
 
     constructor() {
     }
 
     ngOnInit(): void {
+    }
+
+    updateChanges(event: { algoName: string, buttonPressed: boolean }): void {
+        this.isDisplayed = event.buttonPressed;
+        this.algoName = event.algoName;
     }
 
 }

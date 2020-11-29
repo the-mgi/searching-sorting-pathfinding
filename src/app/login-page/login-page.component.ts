@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app-login-page',
@@ -11,7 +12,7 @@ export class LoginPageComponent implements OnInit {
     private isUsernameGood: boolean;
     private isPasswordGood: boolean;
 
-    constructor() {
+    constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit(): void {
@@ -27,6 +28,7 @@ export class LoginPageComponent implements OnInit {
 
     submitForm(emailInput: HTMLInputElement, passwordInput: HTMLInputElement): void {
         console.log(`Username is": ${emailInput.value}\n and the password is: ${passwordInput.value}`);
+        this.router.navigate(['home/main'], {relativeTo: this.activatedRoute});
         // this.authService.SignUp(emailInput.value, passwordInput.value);
     }
 
@@ -42,4 +44,6 @@ export class LoginPageComponent implements OnInit {
     myGithub(): void {
         window.open('https://github.com/the-mgi', '_blank');
     }
+
+
 }

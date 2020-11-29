@@ -1,6 +1,6 @@
 <div class="column-area">
     <div class="all-options">
-        <app-dropdown [category]="'Select Algorithm'" [optionsAvailable]="optionsAvailableSearch"
+        <app-dropdown [category]="selectAlgorithm" [optionsAvailable]="optionsAvailableSearch"
                       (algorithmName)="setAlgorithmName($event)" [forSpeed]="false"></app-dropdown>
         <app-dropdown [category]="'Select Speed'" [optionsAvailable]="optionsAvailableSpeedValues" (speed)="updateSpeed($event)"
                       [forSpeed]="true"></app-dropdown>

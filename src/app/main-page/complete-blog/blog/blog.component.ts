@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Blog} from '../../../../sharedClasses/classTemplate';
+import {Component, OnInit} from '@angular/core';
+import {Blog, blogsData} from '../../../../sharedClasses/classTemplate';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-blog',
@@ -8,12 +9,14 @@ import {Blog} from '../../../../sharedClasses/classTemplate';
 })
 export class BlogComponent implements OnInit {
 
-    @Input() blogPostData: Blog;
+    blogPostData: Blog;
 
-    constructor() {
+    constructor(private activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit(): void {
+        this.blogPostData = blogsData.filter(object => {
+            return object.id === this.activatedRoute.snapshot.params['blog-id'];
+        })[0];
     }
-
 }

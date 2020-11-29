@@ -1,1 +1,7 @@
-<p>{{blogPostData.content}}</p>
+<p>{{blogPostData.writtenBy}}</p>
+<p>{{blogPostData.writtenDate.toDateString()}}</p>
+<p>{{blogPostData.heading}}</p>
+<p>{{blogPostData.description}}</p>
+<p [innerHTML]="blogPostData.content"></p>
+<p>{{blogPostData.minRead}}</p>
+<app-profile-title [firstLetter]="blogPostData.writtenBy.substr(0, 1)"></app-profile-title>

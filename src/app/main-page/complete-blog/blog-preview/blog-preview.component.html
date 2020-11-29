@@ -18,9 +18,16 @@
                 </div>
                 <div class="row">
                     <div class="right row">
-                        <p style="margin-right: 30px"><span [innerHTML]="book"></span> Reads: {{blog.numberOfTimesRead}}</p>
-                        <p><span [innerHTML]="clock"></span> {{blog.minRead}}mins read</p>
-                        <p>{{blog.writtenDate.toDateString()}}</p>
+                        <p class="for-margin" style="margin-right: 30px"><span [innerHTML]="book"></span>
+                            Reads: {{blog.numberOfTimesRead}}</p>
+                        <p class="for-margin"><span [innerHTML]="clock"></span> {{blog.minRead}}mins read</p>
+                        <p class="for-margin">{{blog.writtenDate.toDateString()}}</p>
+                        <img
+                            class="for-margin"
+                            [src]="blog.isBookmarked ? './assets/svgs/bookmarkFilled.svg' : './assets/svgs/bookmark.svg'"
+                            alt="bookmark-icon"
+                            style="width: 20px; opacity: .7;"
+                        >
                     </div>
                 </div>
             </div>
