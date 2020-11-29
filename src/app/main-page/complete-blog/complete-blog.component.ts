@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Blog} from '../../../sharedClasses/classTemplate';
 
 @Component({
     selector: 'app-complete-blog',
@@ -7,17 +6,6 @@ import {Blog} from '../../../sharedClasses/classTemplate';
     styleUrls: ['./complete-blog.component.css']
 })
 export class CompleteBlogComponent implements OnInit {
-
-    blogs: Blog[] = [
-        new Blog(
-            'Muhammad Usama',
-            new Date(),
-            'How I launched my First Angular Application?',
-            'Including my first experience of Learning, Creating and Deploying Angular Application',
-            'The complete content of my first blog..!!!'
-        )
-    ];
-
     constructor() {
     }
 

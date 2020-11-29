@@ -1,0 +1,29 @@
+<div class="sort-functionality">
+    <app-dropdown
+        [category]="'Sort By'"
+        [optionsAvailable]="options"
+        (algorithmName)="selectOption($event)"
+        [forSpeed]="false"
+        class="cls"
+    ></app-dropdown>
+</div>
+<div class="m">
+    <div class="container-o" *ngFor="let blog of blogs;" role="button" [routerLink]="['..', blog.id]">
+        <div class="blog-preview">
+            <div class="hover-written-by">{{blog.writtenBy}}</div>
+            <div class="con">
+                <div class="col">
+                    <h3>{{blog.heading}}</h3>
+                    <h4>{{blog.description}}</h4>
+                </div>
+                <div class="row">
+                    <div class="right row">
+                        <p style="margin-right: 30px"><span [innerHTML]="book"></span> Reads: {{blog.numberOfTimesRead}}</p>
+                        <p><span [innerHTML]="clock"></span> {{blog.minRead}}mins read</p>
+                        <p>{{blog.writtenDate.toDateString()}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
