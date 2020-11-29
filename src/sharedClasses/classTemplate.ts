@@ -1,12 +1,12 @@
-export class Blog {
-    constructor(
-        public writtenBy: string,
-        public writtenDate: Date,
-        public heading: string,
-        public description: string,
-        public content: string
-    ) {
-    }
+export interface Blog {
+    writtenBy: string;
+    writtenDate: Date;
+    heading: string;
+    description: string;
+    content: string;
+    numberOfTimesRead ?: number;
+    minRead ?: number;
+    id: string;
 }
 
 export interface AlgorithmData {
@@ -204,6 +204,49 @@ export function findAlgorithmSort(algoName: string): AlgorithmData {
  * currently don't know how to make CRUD API, when made,
  * easily methods here would be called and data will be assigned
  */
+
+export const blogsData: Blog[] = [
+    {
+        writtenBy: 'Ali Mujahid Geeniee',
+        writtenDate: new Date(),
+        heading: 'How I launched my First Angular Application?',
+        description: 'Including my first experience of Learning, Creating and Deploying Angular Application',
+        content: 'The complete content of my first blog..!!!',
+        numberOfTimesRead: 17,
+        minRead: 11,
+        id: 'zyx01'
+    },
+    {
+        writtenBy: 'Muhammad Usama',
+        writtenDate: new Date(),
+        heading: 'Firebase OAuth using Github, Twitter, Facebook',
+        description: 'Including my first experience of Learning, Creating and Deploying Angular Application',
+        content: 'The complete content of my first blog..!!!',
+        numberOfTimesRead: 11,
+        minRead: 4,
+        id: 'zyx02'
+    },
+    {
+        writtenBy: 'Muhammad Usama',
+        writtenDate: new Date(),
+        heading: 'How to add Github Gists in Angular Apps?',
+        description: 'Including my first experience of Learning, Creating and Deploying Angular Application',
+        content: 'The complete content of my first blog..!!!',
+        numberOfTimesRead: 100,
+        minRead: 9,
+        id: 'zyx03'
+    },
+    {
+        writtenBy: 'Muhammad Usama',
+        writtenDate: new Date(),
+        heading: 'Why you should STAY AWAY from Javascript?',
+        description: 'Including my first experience of Learning, Creating and Deploying Angular Application',
+        content: 'The complete content of my first blog..!!!',
+        numberOfTimesRead: 110,
+        minRead: 10,
+        id: 'zyx04'
+    }
+];
 
 
 export function parseArray(value: string): number[] {
