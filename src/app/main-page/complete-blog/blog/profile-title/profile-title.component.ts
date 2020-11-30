@@ -8,9 +8,9 @@ import {randomColor} from '../../../../../sharedClasses/classTemplate';
             <p #letter>{{this.firstLetter}}</p>
         </div>`,
     styles: [`.main-container {
-        width: 90px;
-        height: 90px;
-        border-radius: 50px;
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -18,8 +18,11 @@ import {randomColor} from '../../../../../sharedClasses/classTemplate';
     }
 
     p {
-        font-size: 45px;
+        position: relative;
+        top: 5px;
+        font-size: 25px;
         color: white;
+        width: fit-content;
     }
     `]
 })
