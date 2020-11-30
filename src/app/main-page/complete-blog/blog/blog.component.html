@@ -1,7 +1,39 @@
-<p>{{blogPostData.writtenBy}}</p>
-<p>{{blogPostData.writtenDate.toDateString()}}</p>
-<p>{{blogPostData.heading}}</p>
-<p>{{blogPostData.description}}</p>
-<p [innerHTML]="blogPostData.content"></p>
-<p>{{blogPostData.minRead}}</p>
-<app-profile-title [firstLetter]="blogPostData.writtenBy.substr(0, 1)"></app-profile-title>
+<div class="main-container">
+   <div class="need">
+       <div
+           class="popup"
+           [innerHTML]="bookmarkStatus"
+           #popup
+       ></div>
+   </div>
+    <div class="date-data">
+        <p class="for-margin" style="margin-right: 30px"><span [innerHTML]="book"></span>
+            Reads: {{blogPostData.numberOfTimesRead}}</p>
+        <p style="margin-right: 30px"><span [innerHTML]="clock"></span> {{blogPostData.minRead}}mins read</p>
+        <p style="margin-right: 30px">{{blogPostData.writtenDate.toDateString()}}</p>
+        <img
+            class="for-margin"
+            role="button"
+            (click)="bookmark()"
+            [src]="blogPostData.isBookmarked ? './assets/svgs/bookmarkFilled.svg' : './assets/svgs/bookmark.svg'"
+            alt="bookmark-icon"
+            style="width: 20px; opacity: .7;"
+        >
+
+    </div>
+    <div class="heading-desc">
+        <h1 [innerHTML]="blogPostData.heading"></h1>
+    </div>
+    <div class="name-date" style="margin-top: 20px;">
+        <div class="name">
+            <h4>by: </h4>
+            <app-profile-title [firstLetter]="blogPostData.writtenBy.substr(0, 1)"></app-profile-title>
+            <h4 [innerHTML]="blogPostData.writtenBy"></h4>
+        </div>
+        <div class="content" style="margin-top: 20px;">
+            <h2 [innerHTML]="blogPostData.description" style="opacity: .7"></h2>
+            <p [innerHTML]="blogPostData.content"></p>
+        </div>
+    </div>
+
+</div>
