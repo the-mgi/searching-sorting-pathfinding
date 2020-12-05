@@ -1,1 +1,14 @@
-<p>pathfinding works!</p>
+<div class="column-area">
+    <div class="all-options">
+        <app-dropdown [category]="selectAlgorithm" [optionsAvailable]="optionsAvailablePath"
+                      (algorithmName)="setAlgorithmName($event)" [forSpeed]="false"></app-dropdown>
+        <app-dropdown [category]="'Select Speed'" [optionsAvailable]="optionsAvailableSpeedValues"
+                      (speed)="updateSpeed($event)"
+                      [forSpeed]="true"></app-dropdown>
+
+        <button type="button" class="visualize-button"
+                (click)="startVisualization()">
+            Visualize {{algorithm}}</button>
+    </div>
+    <app-complete-grid></app-complete-grid>
+</div>
