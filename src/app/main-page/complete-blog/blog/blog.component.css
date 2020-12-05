@@ -20,6 +20,14 @@ app-profile-title {
     justify-content: flex-end;
 }
 
+.add-margin {
+    margin-right: 30px;
+}
+
+.line {
+    font-size: 35px;
+}
+
 .name {
     display: flex;
     flex-direction: row;
@@ -35,5 +43,11 @@ app-profile-title {
     text-align: center;
     margin-bottom: 10px;
     visibility: hidden;
+}
+
+@media screen and (min-width: 500px) and (max-width: 900px) {
+    .add-margin {
+        visibility: hidden;
+    }
 }
 

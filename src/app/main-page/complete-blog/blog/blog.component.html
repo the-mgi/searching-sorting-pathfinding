@@ -7,12 +7,11 @@
        ></div>
    </div>
     <div class="date-data">
-        <p class="for-margin" style="margin-right: 30px"><span [innerHTML]="book"></span>
+        <p class="add-margin"><span [innerHTML]="book"></span>
             Reads: {{blogPostData.numberOfTimesRead}}</p>
-        <p style="margin-right: 30px"><span [innerHTML]="clock"></span> {{blogPostData.minRead}}mins read</p>
-        <p style="margin-right: 30px">{{blogPostData.writtenDate.toDateString()}}</p>
+        <p class="add-margin"><span [innerHTML]="clock"></span> {{blogPostData.minRead}}mins read</p>
+        <p class="add-margin">{{blogPostData.writtenDate.toDateString()}}</p>
         <img
-            class="for-margin"
             role="button"
             (click)="bookmark()"
             [src]="blogPostData.isBookmarked ? './assets/svgs/bookmarkFilled.svg' : './assets/svgs/bookmark.svg'"
