@@ -1,7 +1,7 @@
 <header>
     <div class="main-div">
         <div class="header-el">
-            <h3>themgi <span [ngClass]="{'rotate-arrow-up': addClass}" class="rotate-arrow"
+            <h3 [routerLink]="['/home', 'main']">themgi <span [ngClass]="{'rotate-arrow-up': addClass}" class="rotate-arrow"
                              (click)="addClass = !addClass"></span></h3>
         </div>
         <div class="nav-bar-el" [ngClass]="{'come-down': addClass}">
