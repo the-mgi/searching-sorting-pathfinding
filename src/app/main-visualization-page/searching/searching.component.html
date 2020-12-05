@@ -6,14 +6,14 @@
                       [forSpeed]="true"></app-dropdown>
         <label for="valToSearch">
             <input type="number" id="valToSearch" class="bars-number" placeholder="Value to Search!"
-                   #valueToSearch>
+                   #valueToSearch [min]="'-99'" [max]="'99'">
         </label>
         <label for="onesArray">
             <input type="text" id="onesArray" class="ones-array"
                    placeholder="Enter your array i.e. {2, 1, 80, 25, 10, 0}" #arrayInput
                    [(ngModel)]="text">
         </label>
-        <button type="button" class="visualize-button" [disabled]="isVisualizeButtonDisabled"
+        <button type="submit" class="visualize-button" [disabled]="isVisualizeButtonDisabled"
                 (click)="addBarsInPage(valueToSearch, arrayInput)">
             Visualize {{algorithm}}</button>
     </div>

@@ -50,6 +50,7 @@ export class SearchingComponent implements OnInit {
 
     setAlgorithmName(event: { nameAlgo: string }): void {
         this.algorithm = event.nameAlgo;
+        this.router.navigate(['/visualizer', 'searching', this.algorithm]);
     }
 
     updateSpeed(event: { speedToRun: string }): void {

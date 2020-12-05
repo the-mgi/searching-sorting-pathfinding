@@ -54,7 +54,7 @@ input[type=text] {
     width: 300px;
 }
 
-button[type=button] {
+button[type=submit] {
     border: none;
     border-radius: 10px;
     outline: none;
@@ -68,15 +68,15 @@ button[type=button] {
     transition: 0.2s;
 }
 
-button[type=button]:hover {
+button[type=submit]:hover {
     box-shadow: 0 0 10px 0 #42e730;
 }
 
-button[type=button]:active {
+button[type=submit]:active {
     color: #d5fcd1;
 }
 
-button[type=button]:disabled {
+button[type=submit]:disabled {
     background-color: #97f88d;
     color: #fdf7f7;
 }
