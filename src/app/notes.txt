@@ -1,27 +1,10 @@
-What is an algorithm?
-    An algorithm can be defined as the set of instructions that we pass on to th computer to do any task in its COMPUTING LIMITS
-    It ranges from simply finding out the LCM of numbers to complex Deep Learning Algorithms such as Logistic Regression
-
-    There are tons of algorithms for Sorting, Searching and Pathfinding, the details of which are given below.
-
 Sorting Algorithms
-    What?
-        Sorting Algorithms is specifically used to arrange the un-organized elements in a given collection. This arrangement can be based on
-        ASCII codes or simply which number is greater than the other on a number line.
-    Why?
-        It proves to be useful in different areas such as for arranging the Book Catalogue in an online E-Book store or Information of people
-        arranged in alphabetical order which is useful for faster retrieval of data from any of these Information Stores.
-    Sorting Algorithms?
-        Some examples are given below which you can visualize by clicking on any of them.
-        => Selection Sort
-        => Bubble Sort
-        => Quick Sort
-        => Merge Sort
-        => Radix Sort
-        => Bucket Sort
-        => Bitonic Sorting
-        => Pancake Sorting
-
-
 Search Algorithms
 Pathfinding algorithms
+
+background blur hojay or front pe aik div ajay uspe pathfinding ki saari details hon k use kaisy karna hai b isko
+
+agar kisi component ko ka role khud button set karo to usko stay active kaisy rakhna hai?
+cursor ko change kaisy karna?
+drag and drop functionality on blog preview component manage cookie sessions
+if you are on mobile the application will not load

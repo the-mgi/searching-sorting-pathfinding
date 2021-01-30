@@ -58,10 +58,46 @@ export enum Algorithm {
     DIJKSTRA = 'Dijkstra\'s'
 }
 
-export interface BoxProperties {
-    rowNumber: number;
-    columnNumber: number;
-    color: string;
+//  start node => green
+//  last node => yellow
+//  path node => blue
+//  open node => white
+//  barrier node => red
+//  closed node => purple
+
+export enum Colors {
+    GREEN = '#0e7a0e',
+    ORANGE = 'orange',
+    BLUE = '#5e5ecd',
+    WHITE = '#ffffff',
+    RED = '#ff0000',
+    PURPLE = 'purple'
+}
+
+export class BoxProperties {
+    constructor(
+        public color: string,
+        public rowNumber?: number,
+        public columnNumber?: number,
+        public width?: number,
+        public height?: number,
+        public neighbours = [],
+        public radius?: number
+    ) {
+    }
+
+    isBarrier(): boolean {
+        return this.color === Colors.RED;
+    }
+
+
+    createBarrier(): void {
+        this.color = Colors.RED;
+    }
+
+    reset(): void {
+        this.color = Colors.WHITE;
+    }
 }
 
 export const optionsAvailableSort: { id: string, name: string }[] = [
@@ -323,3 +359,7 @@ export function findMinMaxNumber(array: number[], startIndex: number, lastIndex:
     }
     return [max, min];
 }
+
+export const contains = (completeString: string, keyword: string): boolean => {
+    return completeString.indexOf(keyword) > -1;
+};

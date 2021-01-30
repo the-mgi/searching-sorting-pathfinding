@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="select-box" >
+    <div class="select-box">
         <div class="options-container" [ngClass]="{'active': notDown}">
             <div class="options" role="button" *ngFor="let singleOption of optionsAvailable"
                  (click)="labelClicked($event)">
@@ -8,7 +8,7 @@
                 </label>
             </div>
         </div>
-        <div class="selected" role="button" (click)="this.notDown = !this.notDown;" >
+        <div class="selected" role="button" (click)="this.notDown = !this.notDown;">
             {{category}}
         </div>
     </div>

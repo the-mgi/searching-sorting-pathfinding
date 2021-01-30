@@ -126,7 +126,7 @@ export class SearchingComponent implements OnInit {
 
     calculateMid = (startIndex: number, lastIndex: number) => {
         return Math.floor((startIndex + lastIndex) / 2);
-    }
+    };
 
     private binarySearch(): void {
         const allBars = this.barsAll._results;
@@ -162,7 +162,7 @@ export class SearchingComponent implements OnInit {
             (lastIndex - startIndex) /
             (this.barsValue[lastIndex].value - this.barsValue[startIndex].value) *
             (this.valueToSearch - this.barsValue[startIndex].value)));
-    }
+    };
 
     private interpolationSearch(): void {
         const allBars = this.barsAll._results;

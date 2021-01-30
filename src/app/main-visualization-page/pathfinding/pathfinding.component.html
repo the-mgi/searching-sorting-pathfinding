@@ -6,9 +6,18 @@
                       (speed)="updateSpeed($event)"
                       [forSpeed]="true"></app-dropdown>
 
-        <button type="button" class="visualize-button"
+        <button type="submit" class="visualize-button"
                 (click)="startVisualization()">
             Visualize {{algorithm}}</button>
+    </div>
+    <div class="color-codes-left common">
+        <app-color-codes role="button" (click)="handleClicks($event)" *ngFor="let color of colorCodesLeft"
+                         [color]="color.color" [text]="color.text"></app-color-codes>
+    </div>
+
+    <div class="color-codes-right common">
+        <app-color-codes *ngFor="let color of colorCodesRight" [color]="color.color"
+                         [text]="color.text"></app-color-codes>
     </div>
     <app-complete-grid></app-complete-grid>
 </div>

@@ -2,7 +2,8 @@
     <div class="all-options">
         <app-dropdown [category]="selectAlgorithm" [optionsAvailable]="optionsAvailableSearch"
                       (algorithmName)="setAlgorithmName($event)" [forSpeed]="false"></app-dropdown>
-        <app-dropdown [category]="'Select Speed'" [optionsAvailable]="optionsAvailableSpeedValues" (speed)="updateSpeed($event)"
+        <app-dropdown [category]="'Select Speed'" [optionsAvailable]="optionsAvailableSpeedValues"
+                      (speed)="updateSpeed($event)"
                       [forSpeed]="true"></app-dropdown>
         <label for="valToSearch">
             <input type="number" id="valToSearch" class="bars-number" placeholder="Value to Search!"

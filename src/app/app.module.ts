@@ -22,9 +22,9 @@ import {AboutComponent} from './main-page/about/about.component';
 import {HomeComponent} from './main-page/home/home.component';
 import {BlogPreviewComponent} from './main-page/complete-blog/blog-preview/blog-preview.component';
 import {ProfileTitleComponent} from './main-page/complete-blog/blog/profile-title/profile-title.component';
-import {GridBoxComponent} from './main-visualization-page/pathfinding/grid-box/grid-box.component';
+import {GridBoxComponent} from './main-visualization-page/pathfinding/complete-grid/grid-box/grid-box.component';
 import {CompleteGridComponent} from './main-visualization-page/pathfinding/complete-grid/complete-grid.component';
-import { SingleProfileComponent } from './main-page/about/single-profile/single-profile.component';
+import { ColorCodesComponent } from './main-visualization-page/pathfinding/complete-grid/color-codes/color-codes.component';
 
 const routes: Route[] = [
     {path: '', component: LoginPageComponent},
@@ -71,7 +71,7 @@ const routes: Route[] = [
         ProfileTitleComponent,
         GridBoxComponent,
         CompleteGridComponent,
-        SingleProfileComponent
+        ColorCodesComponent
     ],
     imports: [
         BrowserModule,

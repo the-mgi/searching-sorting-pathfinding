@@ -1,12 +1,17 @@
 import {Component, OnInit} from '@angular/core';
-import {AlgorithmData, optionsAvailableSearch, searchingAlgorithmsData} from '../../sharedClasses/classTemplate';
 
 
 @Component({
     selector: 'app-main-visualization-page',
-    templateUrl: './main-visualization-page.component.html',
-    styleUrls: ['./main-visualization-page.component.css'],
-    providers: []
+    template: `
+        <div class="main-visualization">
+            <router-outlet></router-outlet>
+        </div>`,
+    styles: [`app-algorithm-info {
+        position: absolute;
+        top: 700px;
+    }
+    `]
 })
 export class MainVisualizationPageComponent implements OnInit {
     isDisplayed = false;
